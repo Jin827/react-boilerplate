@@ -1,4 +1,5 @@
 require('babel-runtime/regenerator');
+require('webpack-hot-middleware/client');
 require('./styles/main.css');
 require('../public/index.html');
 

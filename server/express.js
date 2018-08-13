@@ -10,8 +10,10 @@ const webpackDevMiddleware = require('webpack-dev-middleware')(
   compiler,
   config.devServer
 );
+const webapckHotMiddleware = require('webpack-hot-middleware')(compiler);
 
 server.use(webpackDevMiddleware);
+server.use(webapckHotMiddleware);
 
 const staticMiddleware = express.static('dist');
 
