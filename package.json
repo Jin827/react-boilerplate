@@ -18,8 +18,14 @@
   },
   "homepage": "https://github.com/Jin827/react-boilerplate#readme",
   "dependencies": {
+    "css-loader": "^1.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.22.1",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
+  },
+  "devDependencies": {
+    "mini-css-extract-plugin": "^0.4.1"
   }
 }
