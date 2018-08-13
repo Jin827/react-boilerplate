@@ -9,3 +9,5 @@ var a = async(args) => {
 }
 
 a({ a:1, b:2 });
+
+console.log(`Environment is ${process.env.NODE_ENV}`);

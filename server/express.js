@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 const server = express();
 
-const isProd = process.env.NODE.ENV === "production";
+const isProd = process.env.NODE_ENV === "production";
 if (!isProd) {
   const webpack = require('webpack');
   const config = require('../webpack.dev');
@@ -22,5 +22,5 @@ server.use(staticMiddleware);
 
 const PORT = process.env.PORT || 9007
 server.listen(PORT, () => {
-  console.log(`Sever is listening on ${PORT}`);
+  console.log(`Sever is listening on ${PORT} in ${process.env.NODE_ENV}`);
 })

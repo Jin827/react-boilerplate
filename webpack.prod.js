@@ -73,6 +73,11 @@ module.exports = {
     }),
     new HTMLWebpackPlugin({
       template: './public/index.html'
-    })
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
   ]
 }
