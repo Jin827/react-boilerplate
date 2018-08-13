@@ -15,8 +15,13 @@ export default class extends React.Component {
 
   render() {
     return(
-      <div onClick={this.climb.bind(this)}>
-        <h2>Counting from React: {this.state.count}</h2>
+      <div className="test">
+        <img className="image" src={require('../../assets/image/background.jpeg')} />
+        <h1>{this.props.heading}</h1>
+        <div onClick={this.climb.bind(this)}>
+          <h2>{this.props.contents} {this.state.count}</h2>
+        </div>
+        <img className="svg-image" src="../../assets/svg/nodejs.svg"/>
       </div>
     )
   }

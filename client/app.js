@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Counter from './src/components/counter';
 import { AppContainer } from 'react-hot-loader';
+import Data from '../data/data';
 
 function render(Component) {
   ReactDOM.render(
     <AppContainer>
-      <Component />
+      <Component heading={Data.heading} contents={Data.contents} />
     </AppContainer>,
-    document.getElementById('react-root')
+    document.getElementById('root')
   )
 }
 
