@@ -19,6 +19,6 @@ const staticMiddleware = express.static('dist');
 
 server.use(staticMiddleware);
 
-server.listen(9000, () => {
+server.listen(9007, () => {
   console.log('Sever is listening');
 })
