@@ -39,10 +39,27 @@ module.exports = {
             loader: 'extract-loader'
           },
           {
-            loader: 'html-loader'
+            loader: 'html-loader',
+            options: {
+              attrs: ['img:src']
+            }
           }
         ]
-      }
+      },
+      {
+        test: /\.(jpe?g|png|gif)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'assets/images/[name].[ext]',
+        },
+      },
+      {
+        test: /\.svg$/,
+        loader: 'file-loader',
+        options: {
+          name: 'assets/svg/[name].[ext]',
+        },
+      },
     ]
   }
 }
