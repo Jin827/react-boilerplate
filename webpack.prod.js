@@ -3,6 +3,8 @@ const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -79,5 +81,9 @@ module.exports = {
         NODE_ENV: JSON.stringify('production')
       }
     }),
+    new UglifyJSPlugin(),
+    new CompressionPlugin({
+      algorithm: 'gzip'
+    })
   ]
 }
