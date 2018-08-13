@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -43,23 +44,10 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].html'
-            }
-          },
-          {
-            loader: 'extract-loader'
-          },
-          {
-            loader: 'html-loader',
-            options: {
-              attrs: ['img:src']
-            }
-          }
-        ]
+        loader: 'html-loader',
+        options: {
+          attrs: ['img:src']
+        }
       },
       {
         test: /\.(jpe?g|png|gif)$/,
@@ -78,6 +66,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new HTMLWebpackPlugin({
+      template: './public/index.html'
+    })
   ]
 }
