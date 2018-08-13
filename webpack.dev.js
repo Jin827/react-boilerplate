@@ -4,7 +4,13 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: ['./client/index.js']
+    main: [
+      // 'babel-register',
+      'babel-runtime/regenerator',
+      'webpack-hot-middleware/client?reload=true',
+      // 'react-hot-loader/patch',
+      './client/index.js'
+    ]
   },
   mode: 'development',
   output: {

@@ -58,7 +58,16 @@ module.exports = {
     ]
   },
   plugins: [
-    new OptimizeCssAssetsPlugin(),
+    new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.s?css$/,
+      cssProcessor: require('cssnano'),
+      cssProcessorOptions: {
+        discardComments: {
+          removeAll: true,
+          canPrint: true
+        }
+      }
+    }),
     new MiniCssExtractPlugin({
       filename: '[name]-[contenthash].css'
     }),
