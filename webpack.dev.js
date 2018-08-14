@@ -87,6 +87,12 @@ module.exports = {
           name: 'assets/svg/[name].[ext]',
         },
       },
+      {
+        test: /\.md$/,
+        use: [
+          { loader: 'markdown-with-front-matter-loader' }
+        ]
+      }
     ]
   },
   plugins: [

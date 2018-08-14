@@ -1,4 +1,5 @@
 import React from 'react';
+import MarkdownData from '../../../data/post.md';
 export default class extends React.Component {
   constructor(props) {
     super(props)
@@ -19,7 +20,10 @@ export default class extends React.Component {
         <img className="image" src={require('../../assets/image/background.jpeg')} />
         <h1>{this.props.heading}</h1>
         <div onClick={this.climb.bind(this)}>
-          <h2>{this.props.contents} {this.state.count}</h2>
+          <h2>{MarkdownData.title} {this.state.count}</h2>
+          <div 
+            dangerouslySetInnerHTML={{__html:MarkdownData.__content}} 
+          />
         </div>
         <img className="svg-image" src="../../assets/svg/nodejs.svg"/>
       </div>
