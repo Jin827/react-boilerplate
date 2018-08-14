@@ -16,7 +16,7 @@ module.exports = {
   },
   mode: 'production',
   output: {
-    filename: '[name]-bundle.js',
+    filename: '[name]-bundle.[hash].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: "/"
   },
