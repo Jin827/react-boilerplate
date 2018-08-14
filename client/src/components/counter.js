@@ -25,7 +25,7 @@ export default class extends React.Component {
             dangerouslySetInnerHTML={{__html:MarkdownData.__content}} 
           />
         </div>
-        <img className="svg-image" src="../../assets/svg/nodejs.svg"/>
+        <img className="svg-image" src={require('../../assets/svg/nodejs.svg')} />
       </div>
     )
   }

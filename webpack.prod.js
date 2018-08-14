@@ -4,11 +4,13 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+// Compress Files
 const BrotliPlugin = require('brotli-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: ['./client/index.js']
+    main: ['./client/index.js'],
+    other: ['./client/index.js']
   },
   mode: 'production',
   output: {
@@ -16,12 +18,17 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: "/"
   },
-  devServer: {
-    contentBase: 'dist',
-    overlay: true,
-    hot: true,
-    stats: {
-      colors: true
+  optimization: {
+    splitChunks: {
+      automaticNameDelimiter: "-",
+      cacheGroups: {
+        vendor: {
+          name: "vendor",
+          test: /[\\/]node_modules[\\/]/,
+          chunks: "initial",
+          minChunks: 2
+        }
+      }
     }
   },
   module: {

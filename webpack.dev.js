@@ -1,14 +1,15 @@
 const path = require('path');
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
     main: [
-      // 'babel-register',
+      'babel-register',
       'babel-runtime/regenerator',
       'webpack-hot-middleware/client?reload=true',
-      // 'react-hot-loader/patch',
+      'react-hot-loader/patch',
       './client/index.js'
     ]
   },
@@ -97,13 +98,16 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new HTMLWebpackPlugin({
-      template: './public/index.html'
-    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development')
       }
+    }),
+    new HTMLWebpackPlugin({
+      template: './public/index.html'
+    }),
+    new BundleAnalyzerPlugin({
+      generateStatsFile: true
     })
   ]
 }
