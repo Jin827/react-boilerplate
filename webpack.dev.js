@@ -1,14 +1,16 @@
 const path = require('path');
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
+    vendor: ["react", "react-dom"],
     main: [
       'babel-register',
       'babel-runtime/regenerator',
+      // Hot Reloading 
       'webpack-hot-middleware/client?reload=true',
+      // React Stateful Hot Reloading
       'react-hot-loader/patch',
       './client/index.js'
     ]
@@ -78,14 +80,14 @@ module.exports = {
         test: /\.(jpe?g|png|gif)$/,
         loader: 'file-loader',
         options: {
-          name: 'assets/images/[name].[ext]',
+          name: 'assets/[hash].[ext]',
         },
       },
       {
         test: /\.svg$/,
         loader: 'file-loader',
         options: {
-          name: 'assets/svg/[name].[ext]',
+          name: 'assets/[hash].[ext]',
         },
       },
       {
@@ -105,9 +107,6 @@ module.exports = {
     }),
     new HTMLWebpackPlugin({
       template: './public/index.html'
-    }),
-    new BundleAnalyzerPlugin({
-      generateStatsFile: true
     })
   ]
 }

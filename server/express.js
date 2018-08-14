@@ -17,6 +17,7 @@ if (!isProd) {
   server.use(webpackDevMiddleware);
   server.use(webapckHotMiddleware);
 }
+// Serve Static Assets
 // const staticMiddleware = express.static('dist');
 // server.use(staticMiddleware);
 const expressStaticGzip = require('express-static-gzip');
