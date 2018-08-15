@@ -4,6 +4,7 @@ import { AppContainer } from 'react-hot-loader';
 import Counter from './src/components/counter';
 import Data from '../data/data';
 
+
 function render(Component) {
   ReactDOM.render(
     <AppContainer>
@@ -17,7 +18,7 @@ render(Counter);
 
 if (module.hot) {
   module.hot.accept('./src/components/counter', () => {
-    const NewCounter = require('./src/components/counter').default;
+    const NewCounter = Counter.default;
     render(NewCounter);
   });
 }

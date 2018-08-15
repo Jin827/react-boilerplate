@@ -1,8 +1,10 @@
 import React from 'react';
 import MarkdownData from '../../../data/post.md';
+import Image from '../../assets/image/background.jpeg';
+import Svg from '../../assets/svg/nodejs.svg';
 
 const getBundle = () => {
-  import(/* webpackChunkName: 'lodash' */ 'lodash')
+  import(/* webpackChunkName: 'lodash' */ 'lodash') // eslint-disable-next-line no-console
     .then(() => console.log('imported'));
 };
 export default class extends React.Component {
@@ -14,28 +16,31 @@ export default class extends React.Component {
   }
 
   climb() {
+    const {count} = this.state;
     this.setState({
-      count: this.state.count + 1,
+      count: count + 1,
     });
   }
 
   render() {
     /* JS COMMENT */
+    const {count} = this.state;
+    const {heading} = this.props;
     return (
       <div className="test">
-        <img className="image" src={require('../../assets/image/background.jpeg')} />
-        <h1 onClick={getBundle}>{this.props.heading}</h1>
+        <img className="image" src={Image} alt='img' />
+        <h1 onClick={getBundle}>{heading}</h1>
         <div onClick={this.climb.bind(this)}>
           <h2>
             {MarkdownData.title}
             {' '}
-            {this.state.count}
+            {count}
           </h2>
           <div
             dangerouslySetInnerHTML={{ __html: MarkdownData.__content }}
           />
         </div>
-        <img className="svg-image" src={require('../../assets/svg/nodejs.svg')} />
+        <img className="svg-image" src={Svg} alt='img' />
       </div>
     );
   }

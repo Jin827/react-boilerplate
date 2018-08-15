@@ -43,6 +43,8 @@ module.exports = {
       extensions: ['.js', '.jsx']
     }],
     'import/extensions': ['off', 'never'],
-    'quotes': ['error', 'single']
+    'quotes': ['error', 'single'],
+    'no-console': 1,
+    'semi': 'error'
   }
 }
