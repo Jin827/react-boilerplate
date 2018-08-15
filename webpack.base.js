@@ -1,62 +1,22 @@
 const webpack = require('webpack');
 const path = require('path');
+
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-// Compress Files
-const BrotliPlugin = require('brotli-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-
 const devMode = process.env.NODE_ENV !== 'production'
-console.log('WEBPACK QQQQQ ', process.env.NODE_ENV);
+
 module.exports = {
-  mode: process.env.NODE_ENV,
-  entry: devMode ? {
-    vendor: ["react", "react-dom"],
-    main: [
-      'babel-register',
-      'babel-runtime/regenerator',
-      // Hot Reloading 
-      'webpack-hot-middleware/client?reload=true',
-      // React Stateful Hot Reloading
-      'react-hot-loader/patch',
-      './client/index.js'
-    ]
-  }: {
-    vendor: ["react", "react-dom", "lodash"],
-    main: ['./client/index.js']
-  }
-  ,
   output: {
     filename: devMode ? '[name]-bundle.js' : '[name]-bundle.[hash].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: "/"
   },
-  devtool: devMode ? 'inline-source-map' : 'source-map',
-  devServer: devMode ? {
-    contentBase: 'dist',
-    overlay: true,
-    hot: true,
-    stats: {
-      colors: true
-    }
-  } : null,
-  optimization: devMode ? {
+  optimization: {
     splitChunks: {
-      automaticNameDelimiter: "-",
-      cacheGroups: {
-        vendor: {
-          name: "vendor",
-          test: /[\\/]node_modules[\\/]/,
-          chunks: "initial",
-          minChunks: 2
-        }
-      }
+      chunks: 'all'
     }
-  } : null,
+  },
   module: {
     rules: [
       {
@@ -74,9 +34,11 @@ module.exports = {
         use: [
           { loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader },
           { loader: 'css-loader', 
-            options: { 
+            options: devMode ? { 
               sourceMap: true,
               importLoaders: 1 
+            } : {
+              importLoaders: 1
             }
           },
           {
@@ -86,9 +48,9 @@ module.exports = {
             } : {}
           },
           { loader: 'sass-loader',
-            options: {
+            options: devMode ? {
               sourceMap: true
-            }
+            } : {}
           }
         ]
         
@@ -129,34 +91,11 @@ module.exports = {
       }
     }),
     new HTMLWebpackPlugin({
-      template: './public/index.html',
-      hash: devMode ? false : true
+      template: './public/index.html'
     }),
     new MiniCssExtractPlugin({
       filename: devMode ? '[name].css' : '[name].[hash].css',
-      chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
-
-    }),
-    devMode ? 
-    new webpack.HotModuleReplacementPlugin() : 
-    new CleanWebpackPlugin(['dist'], {
-      verbose: true,
-      dry: false
-    }),
-    new OptimizeCssAssetsPlugin({
-      assetNameRegExp: /\.s?css$/,
-      cssProcessor: require('cssnano'),
-      cssProcessorOptions: {
-        discardComments: {
-          removeAll: true
-        },
-      canPrint: true
-      }
-    }),
-    new UglifyJSPlugin(),
-    new BrotliPlugin(),
-    new BundleAnalyzerPlugin({
-      generateStatsFile: true
+      chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
     })
   ]
 }

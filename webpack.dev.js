@@ -1,11 +1,11 @@
-const path = require('path');
 const webpack = require('webpack');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const merge = require('webpack-merge');
+const baseConfig = require('./webpack.base');
 
-module.exports = {
+const config = {
+  mode: 'development',
   entry: {
-    vendor: ["react", "react-dom"],
+    vendor: ["react", "lodash"],
     main: [
       'babel-register',
       'babel-runtime/regenerator',
@@ -16,12 +16,6 @@ module.exports = {
       './client/index.js'
     ]
   },
-  mode: 'development',
-  output: {
-    filename: '[name]-bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: "/"
-  },
   devServer: {
     contentBase: 'dist',
     overlay: true,
@@ -30,84 +24,10 @@ module.exports = {
       colors: true
     }
   },
-  devtool: 'source-map',
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: [
-          {
-            loader: 'babel-loader'
-          },
-        ],
-      },
-      {
-        test: /\.s?css$/,
-        exclude: /node_modules/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader', 
-            options: { 
-              sourceMap: true,
-              importLoaders: 1 
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true
-            }
-          },
-          { loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
-          }
-        ]
-        
-      },
-      {
-        test: /\.html$/,
-        loader: 'html-loader',
-        options: {
-          attrs: ['img:src']
-        }
-      },
-      {
-        test: /\.(jpe?g|png|gif)$/,
-        loader: 'file-loader',
-        options: {
-          name: 'assets/[name].[ext]',
-        },
-      },
-      {
-        test: /\.svg$/,
-        loader: 'file-loader',
-        options: {
-          name: 'assets/[name].[ext]',
-        },
-      },
-      {
-        test: /\.md$/,
-        use: [
-          { loader: 'markdown-with-front-matter-loader' }
-        ]
-      }
-    ]
-  },
+  devtool: 'eval',
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('development')
-      }
-    }),
-    new HTMLWebpackPlugin({
-      template: './public/index.html'
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name].css'
-    }),
+    new webpack.HotModuleReplacementPlugin()
   ]
 }
+
+module.exports = merge(baseConfig, config);

@@ -1,92 +1,20 @@
-const path = require('path');
-const webpack = require('webpack');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const merge = require('webpack-merge');
+const baseConfig = require('./webpack.base');
+
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 // Compress Files
 const BrotliPlugin = require('brotli-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-module.exports = {
+const config = {
+  mode: 'production',
   entry: {
-    vendor: ["react", "react-dom", "lodash"],
+    vendor: ["react", "lodash"],
     main: ['./client/index.js']
   },
-  mode: 'production',
-  output: {
-    filename: '[name]-bundle.[hash].js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: "/"
-  },
-  optimization: {
-    splitChunks: {
-      automaticNameDelimiter: "-",
-      cacheGroups: {
-        vendor: {
-          name: "vendor",
-          test: /[\\/]node_modules[\\/]/,
-          chunks: "initial",
-          minChunks: 2
-        }
-      }
-    }
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: [
-          {
-            loader: 'babel-loader'
-          },
-        ],
-      },
-      {
-        test: /\.s?css$/,
-        exclude: /node_modules/,
-        use: [
-          { loader: MiniCssExtractPlugin.loader },
-          { loader: 'css-loader',
-            options: {
-              importLoaders: 1
-            }
-          },
-          { loader: 'postcss-loader'},
-          { loader: 'sass-loader' }
-        ]
-      },
-      {
-        test: /\.html$/,
-        loader: 'html-loader',
-        options: {
-          attrs: ['img:src']
-        }
-      },
-      {
-        test: /\.(jpe?g|png|gif)$/,
-        loader: 'file-loader',
-        options: {
-          name: 'assets/[name].[ext]',
-        },
-      },
-      {
-        test: /\.svg$/,
-        loader: 'file-loader',
-        options: {
-          name: 'assets/[name].[ext]',
-        },
-      },
-      {
-        test: /\.md$/,
-        use: [
-          { loader: 'markdown-with-front-matter-loader' }
-        ]
-      }
-    ]
-  },
+  devtool: 'source-map',
   plugins: [
     new CleanWebpackPlugin(['dist'], {
       verbose: true,
@@ -102,18 +30,6 @@ module.exports = {
       canPrint: true
       }
     }),
-    new MiniCssExtractPlugin({
-      filename: '[name]-[contenthash].css'
-    }),
-    new HTMLWebpackPlugin({
-      hash: true,
-      template: './public/index.html'
-    }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
-    }),
     new UglifyJSPlugin(),
     new BrotliPlugin(),
     new BundleAnalyzerPlugin({
@@ -121,3 +37,5 @@ module.exports = {
     })
   ]
 }
+
+module.exports = merge(baseConfig, config);
