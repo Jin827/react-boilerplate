@@ -9,6 +9,7 @@ const devMode = process.env.NODE_ENV !== 'production'
 module.exports = {
   output: {
     filename: devMode ? '[name]-bundle.js' : '[name]-bundle.[hash].js',
+    chunkFilename: devMode ? '[name].js' : '[name].[hash].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: "/"
   },

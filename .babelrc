@@ -14,7 +14,7 @@
   "plugins": [],
   "env": {
     "development": {
-      "plugins": ["transform-runtime", "react-hot-loader/babel"]
+      "plugins": ["transform-runtime", "react-hot-loader/babel", "syntax-dynamic-import"]
     }
   }
 }
