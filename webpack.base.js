@@ -35,23 +35,23 @@ module.exports = {
         use: [
           { loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader },
           { loader: 'css-loader', 
-            options: devMode ? { 
+            options: { 
               sourceMap: true,
               importLoaders: 1 
-            } : {
-              importLoaders: 1
             }
           },
           {
             loader: 'postcss-loader',
-            options: devMode ? {
+            options: {
+              indent: 'postcss',
+              plugins: [require('autoprefixer')({ browsers: 'last 2 versions'})],
               sourceMap: true
-            } : {}
+            }
           },
           { loader: 'sass-loader',
-            options: devMode ? {
+            options: {
               sourceMap: true
-            } : {}
+            }
           }
         ]
         

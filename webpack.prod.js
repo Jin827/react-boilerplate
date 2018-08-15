@@ -30,7 +30,18 @@ const config = {
       canPrint: true
       }
     }),
-    new UglifyJSPlugin(),
+    new UglifyJSPlugin({
+      uglifyOptions: {
+        ecma: 8,
+        warnings: false,
+        sourceMap: true,
+        output: {
+          comments: false,
+          cache: true,
+          parallel: true,
+        },
+      }
+    }),
     new BrotliPlugin(),
     new BundleAnalyzerPlugin({
       generateStatsFile: true
