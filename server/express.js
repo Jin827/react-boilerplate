@@ -5,7 +5,7 @@ const server = express();
 const isProd = process.env.NODE_ENV === "production";
 if (!isProd) {
   const webpack = require('webpack');
-  const config = require('../webpack.dev');
+  const config = require('../webpack.config');
   const compiler = webpack(config);
 
   const webpackDevMiddleware = require('webpack-dev-middleware')(
