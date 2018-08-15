@@ -8,6 +8,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 // Compress Files
 const BrotliPlugin = require('brotli-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -49,7 +50,11 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           { loader: MiniCssExtractPlugin.loader },
-          { loader: 'css-loader' },
+          { loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
           { loader: 'postcss-loader', options: {
             ident: 'postcss',
             plugins: () => [
@@ -67,6 +72,11 @@ module.exports = {
                 }
               })
             ]
+            // plugins: () => {
+            //   return [
+            //     require('autoprefixer')({ browsers: 'last 2 versions' })
+            //   ]
+            // }
           } },
           { loader: 'sass-loader' }
         ]
@@ -82,14 +92,14 @@ module.exports = {
         test: /\.(jpe?g|png|gif)$/,
         loader: 'file-loader',
         options: {
-          name: 'assets/images/[name].[ext]',
+          name: 'assets/[name].[ext]',
         },
       },
       {
         test: /\.svg$/,
         loader: 'file-loader',
         options: {
-          name: 'assets/svg/[name].[ext]',
+          name: 'assets/[name].[ext]',
         },
       },
       {
@@ -101,6 +111,10 @@ module.exports = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin(['dist'], {
+      verbose: true,
+      dry: false
+    }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.s?css$/,
       cssProcessor: require('cssnano'),
@@ -115,6 +129,7 @@ module.exports = {
       filename: '[name]-[contenthash].css'
     }),
     new HTMLWebpackPlugin({
+      hash: true,
       template: './public/index.html'
     }),
     new webpack.DefinePlugin({

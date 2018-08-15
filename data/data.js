@@ -1,3 +1,3 @@
 module.exports = {
-  heading: "Hello, World",
+  heading: "Hello, World!!",
 }

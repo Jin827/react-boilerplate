@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
@@ -17,7 +18,7 @@ module.exports = {
   },
   mode: 'development',
   output: {
-    filename: '[name]-bundle.[hash].js',
+    filename: '[name]-bundle.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: "/"
   },
@@ -47,18 +48,14 @@ module.exports = {
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader', 
-            options: {
-              sourceMap: true,
-              importLoaders: 1,
+            options: { 
+              sourceMap: true 
             }
           },
           {
             loader: 'postcss-loader',
             options: {
-              sourceMap: true,
-              config: {
-                path: 'postcss.config.js',
-              }
+              sourceMap: true
             }
           },
           { loader: 'sass-loader',
@@ -80,14 +77,14 @@ module.exports = {
         test: /\.(jpe?g|png|gif)$/,
         loader: 'file-loader',
         options: {
-          name: 'assets/[hash].[ext]',
+          name: 'assets/[name].[ext]',
         },
       },
       {
         test: /\.svg$/,
         loader: 'file-loader',
         options: {
-          name: 'assets/[hash].[ext]',
+          name: 'assets/[name].[ext]',
         },
       },
       {
@@ -107,6 +104,9 @@ module.exports = {
     }),
     new HTMLWebpackPlugin({
       template: './public/index.html'
-    })
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css'
+    }),
   ]
 }
