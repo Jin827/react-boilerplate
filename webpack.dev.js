@@ -5,7 +5,6 @@ const baseConfig = require('./webpack.base');
 const config = {
   mode: 'development',
   entry: {
-    vendor: ['react', 'react-dom'],
     main: [
       // 'babel-register',
       // 'babel-runtime/regenerator',
