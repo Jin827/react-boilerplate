@@ -5,7 +5,7 @@ require('./app');
 var a = async(args) => {
   const { a, b } = args
   await console.log('1. Arrow Function Works!');
-  console.log('2. async/await Done');
+  console.log('2. async/await Done.');
 }
 
 a({ a:1, b:2 });
