@@ -20,6 +20,7 @@ export default class extends React.Component {
   }
 
   render() {
+    /* JS COMMENT */
     return(
       <div className="test">
         <img className="image" src={require('../../assets/image/background.jpeg')} />

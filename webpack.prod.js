@@ -31,15 +31,21 @@ const config = {
       }
     }),
     new UglifyJSPlugin({
+      test: /\.js($|\?)/i,
+      sourceMap: true,
+      cache: true,
+      parallel: true,
       uglifyOptions: {
         ecma: 8,
         warnings: false,
-        sourceMap: true,
+        ie8: true,
+        safari10: true,
         output: {
-          comments: false,
-          cache: true,
-          parallel: true,
+          comments: false
         },
+        compress: {
+          dead_code: true
+        }
       }
     }),
     new BrotliPlugin(),
