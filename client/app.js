@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Counter from './src/components/counter';
 import { AppContainer } from 'react-hot-loader';
+import Counter from './src/components/counter';
 import Data from '../data/data';
 
 function render(Component) {
@@ -9,15 +9,15 @@ function render(Component) {
     <AppContainer>
       <Component heading={Data.heading} contents={Data.contents} />
     </AppContainer>,
-    document.getElementById('root')
-  )
+    document.getElementById('root'),
+  );
 }
 
-render(Counter)
+render(Counter);
 
 if (module.hot) {
   module.hot.accept('./src/components/counter', () => {
-    const NewCounter = require('./src/components/counter').default
-    render(NewCounter)
-  })
+    const NewCounter = require('./src/components/counter').default;
+    render(NewCounter);
+  });
 }

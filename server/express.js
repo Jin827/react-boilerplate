@@ -1,7 +1,8 @@
 import express from 'express';
+
 const server = express();
 
-const isProd = process.env.NODE_ENV === "production";
+const isProd = process.env.NODE_ENV === 'production';
 if (!isProd) {
   const webpack = require('webpack');
   const config = require('../webpack.dev');
@@ -9,7 +10,7 @@ if (!isProd) {
 
   const webpackDevMiddleware = require('webpack-dev-middleware')(
     compiler,
-    config.devServer
+    config.devServer,
   );
   const webapckHotMiddleware = require('webpack-hot-middleware')(compiler);
 
@@ -20,11 +21,12 @@ if (!isProd) {
 // const staticMiddleware = express.static('dist');
 // server.use(staticMiddleware);
 const expressStaticGzip = require('express-static-gzip');
+
 server.use(expressStaticGzip('dist', {
-  enableBrotli: true
+  enableBrotli: true,
 }));
 
-const PORT = process.env.PORT || 9007
+const PORT = process.env.PORT || 9007;
 server.listen(PORT, () => {
   console.log(`Sever is listening on ${PORT} in ${process.env.NODE_ENV}`);
-})
+});
