@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
     node: true,
@@ -6,7 +7,9 @@ module.exports = {
   },
   extends: [
     'airbnb',
+    "plugin:flowtype/recommended",
     'prettier',
+    'prettier/flowtype',
     'prettier/react',
   ],
   parser: 'babel-eslint',
@@ -17,7 +20,7 @@ module.exports = {
     },
     sourceType: 'module',
   },
-  plugins: ['prettier', 'react', 'jsx-a11y', 'import'],
+  plugins: ["flowtype", 'prettier', 'react', 'jsx-a11y', 'import'],
   rules: {
     'jsx-a11y/href-no-hash': 'off',
     'jsx-a11y/label-has-for': 'off',
@@ -45,6 +48,6 @@ module.exports = {
     'import/extensions': ['off', 'never'],
     'quotes': ['error', 'single'],
     'no-console': 1,
-    'semi': 'error'
+    'semi': 'error',
   }
 }
