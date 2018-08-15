@@ -1,5 +1,6 @@
 module.exports = {
+  indent: 'postcss',
   plugins: [
-    require('autoprefixer')
+    require('autoprefixer')({ browsers: 'last 2 versions' })
   ]
 }

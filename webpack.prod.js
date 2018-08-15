@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const postcssPresetEnv = require('postcss-preset-env');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -55,29 +54,7 @@ module.exports = {
               importLoaders: 1
             }
           },
-          { loader: 'postcss-loader', options: {
-            ident: 'postcss',
-            plugins: () => [
-              postcssPresetEnv({
-                autoprefixer: { 
-                  grid: true,
-                  add: true,
-                  cascade: true,
-                  flexbox: true
-                },
-                features: {
-                  'color-mod-function': {
-                    unresolved: 'warn'
-                  }
-                }
-              })
-            ]
-            // plugins: () => {
-            //   return [
-            //     require('autoprefixer')({ browsers: 'last 2 versions' })
-            //   ]
-            // }
-          } },
+          { loader: 'postcss-loader'},
           { loader: 'sass-loader' }
         ]
       },

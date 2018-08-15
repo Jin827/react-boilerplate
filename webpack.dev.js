@@ -49,7 +49,8 @@ module.exports = {
           { loader: 'style-loader' },
           { loader: 'css-loader', 
             options: { 
-              sourceMap: true 
+              sourceMap: true,
+              importLoaders: 1 
             }
           },
           {
