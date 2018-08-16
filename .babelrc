@@ -12,10 +12,10 @@
     "react",
     "babel-preset-react"
   ],
-  "plugins": [],
+  "plugins": ["syntax-dynamic-import"],
   "env": {
     "development": {
-      "plugins": ["transform-runtime", "react-hot-loader/babel", "syntax-dynamic-import"]
+      "plugins": ["transform-runtime", "react-hot-loader/babel"]
     }
   }
 }

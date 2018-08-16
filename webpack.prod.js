@@ -1,6 +1,7 @@
 const merge = require('webpack-merge');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const cssnano = require('cssnano');
 // Compress Files
 const BrotliPlugin = require('brotli-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -24,6 +25,12 @@ const config = {
           chunks: 'all',
           minChunks: 2
         },
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true
+        }
       },
     },
     minimizer: [
@@ -47,10 +54,13 @@ const config = {
         },
       }),
       new OptimizeCssAssetsPlugin({
+        assetNameRegExp: /\.optimize\.css$/g,
+        cssProcessor: cssnano,
         cssProcessorOptions: {
-          zindex: false,
+          discardComments: { removeAll: true }
         },
-      }),
+        canPrint: true
+      })
     ],
   },
   plugins: [
@@ -65,4 +75,4 @@ const config = {
   ],
 };
 
-module.exports = merge(baseConfig, config);
+module.exports = merge(config, baseConfig);

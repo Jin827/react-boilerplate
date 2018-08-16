@@ -6,7 +6,7 @@ import Svg from '../../assets/svg/nodejs.svg';
 const getBundle = () => {
   import(/* webpackChunkName: 'lodash' */ 'lodash').then(() =>
     // eslint-disable-next-line no-console
-    console.log('imported')
+     console.log('imported')
   );
 };
 export default class extends React.Component {

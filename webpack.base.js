@@ -26,33 +26,36 @@ module.exports = {
       test: /\.(sa|sc|c)ss$/,
       exclude: /node_modules/,
       use: [{
-        loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-      },
-      {
-        loader: 'css-loader',
-        options: {
-          sourceMap: true,
-          importLoaders: 1,
+          loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          options: {
+            publicPath: 'client/style'
+          }
         },
-      },
-      {
-        loader: 'postcss-loader',
-        options: {
-          indent: 'postcss',
-          plugins: [
-            autoprefixer({
-              browsers: 'last 2 versions',
-            }),
-          ],
-          sourceMap: true,
+        {
+          loader: 'css-loader',
+          options: {
+            sourceMap: true,
+            importLoaders: 1,
+          },
         },
-      },
-      {
-        loader: 'sass-loader',
-        options: {
-          sourceMap: true,
+        {
+          loader: 'postcss-loader',
+          options: {
+            indent: 'postcss',
+            plugins: [
+              autoprefixer({
+                browsers: 'last 2 versions',
+              }),
+            ],
+            sourceMap: true,
+          },
         },
-      },
+        {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: true,
+          },
+        },
       ],
     },
     {
