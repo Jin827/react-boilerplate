@@ -45,6 +45,7 @@ module.exports = {
     'react/jsx-filename-extension': [1, {
       extensions: ['.js', '.jsx']
     }],
+    "react/destructuring-assignment": 'off',
     'import/extensions': ['off', 'never'],
     'quotes': ['error', 'single'],
     'no-console': 1,

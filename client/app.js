@@ -1,24 +1,23 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
-import Counter from './src/components/counter';
-import Data from '../data/data';
+import { Helmet } from 'react-helmet';
 
-
-function render(Component) {
-  ReactDOM.render(
-    <AppContainer>
-      <Component heading={Data.heading} contents={Data.contents} />
-    </AppContainer>,
-    document.getElementById('root'),
+const App = (props) => {
+  const { children } = props;
+  return(
+    <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>###</title>
+        <meta property="og:title" content="###" />
+        <meta property="og:description"
+  content="###" />
+        <meta property="og:type" content="###" />
+        <meta property="og:url" content="###" />
+        <meta property="og:image" content="###" />
+      </Helmet>
+      { children }
+    </div>
   );
-}
+};
 
-render(Counter);
-
-if (module.hot) {
-  module.hot.accept('./src/components/counter', () => {
-    const NewCounter = Counter.default;
-    render(NewCounter);
-  });
-}
+export default App;

@@ -27,9 +27,6 @@ module.exports = {
       exclude: /node_modules/,
       use: [{
           loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-          options: {
-            publicPath: 'client/style'
-          }
         },
         {
           loader: 'css-loader',
