@@ -14,14 +14,6 @@ const Nav = () => (
         </li>
       </ul>
     </nav>
-    {routes.map(route => (
-      <Route
-        key={route.path}
-        path={route.path}
-        exact
-        component={route.component}
-      />
-    ))}
   </div>
 );
 

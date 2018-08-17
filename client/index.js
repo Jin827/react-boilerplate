@@ -2,7 +2,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
-import App from './app';
+
+import Routes from './Routes';
 
 require('./styles/main.scss');
 
@@ -11,7 +12,7 @@ document.body.appendChild(root);
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <Routes />
   </BrowserRouter>,
   root,
 );

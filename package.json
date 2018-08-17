@@ -4,14 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev-init": "webpack-dev-server --config=webpack.dev.js",
     "eslint": "./node_modules/.bin/eslint --fix --ignore-path .gitignore .",
-    "dev-server": "webpack-dev-server --config=webpack.dev.js",
-    "build:prod": "NODE_ENV=production webpack --config=webpack.prod.js",
-    "build:dev": "NODE_ENV=development webpack --config=webpack.dev.js",
+    "dev": "npm-run-all --parallel dev:*",
     "dev:client": "NODE_ENV=development webpack --config webpack.dev.js --watch",
     "dev:server": "NODE_ENV=development nodemon --inspect --watch config --watch server server/server.js",
     "server": "nodemon --watch dist --exec \"node dist/main-bundle.js\"",
-    "dev": "npm-run-all --parallel dev:*",
+    "build:prod": "NODE_ENV=production webpack --config=webpack.prod.js",
     "start": "NODE_ENV=production node server/server.js",
     "heroku-postbuild": "npm run build:prod"
   },

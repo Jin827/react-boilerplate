@@ -1,29 +1,17 @@
 import React from 'react';
+import {Route, Switch} from 'react-router-dom';
+import App from './app';
 import Home from './src/components/Home';
 import User from './src/components/user';
 
-const Bus = () => <h1>BUS</h1>;
-const Cart = () => <h1>CART</h1>;
+const Routes = () => (
+  <div>
+    <App />
+    <Switch>
+      <Route path="/" component={Home} exact />
+      <Route path="/user" component={User} />
+    </Switch>
+  </div>
+);
 
-const routes = [
-  {
-    path: '/',
-    component: Home,
-  },
-  {
-    path: '/user',
-    component: User,
-    routes: [
-      {
-        path: '/tacos/bus',
-        component: Bus,
-      },
-      {
-        path: '/tacos/cart',
-        component: Cart,
-      },
-    ],
-  },
-];
-
-export default routes;
+export default Routes;
