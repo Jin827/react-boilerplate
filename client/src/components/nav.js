@@ -1,6 +1,5 @@
 import React from 'react';
-import {NavLink, Route} from 'react-router-dom';
-import routes from '../../Routes';
+import {NavLink} from 'react-router-dom';
 
 const Nav = () => (
   <div>
