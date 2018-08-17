@@ -24,11 +24,13 @@ const config = {
     },
   },
   module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      use: ['babel-loader', 'eslint-loader'],
-    }],
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader', 'eslint-loader'],
+      },
+    ],
   },
   devtool: 'eval',
   plugins: [new webpack.HotModuleReplacementPlugin()],

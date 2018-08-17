@@ -15,73 +15,79 @@ module.exports = {
     publicPath: '/',
   },
   module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /(node_modules|bower_components)/,
-      use: [{
-        loader: 'babel-loader',
-      }],
-    },
-    {
-      test: /\.(sa|sc|c)ss$/,
-      exclude: /node_modules/,
-      use: [{
-          loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-        },
-        {
-          loader: 'css-loader',
-          options: {
-            sourceMap: true,
-            importLoaders: 1,
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: [
+          {
+            loader: 'babel-loader',
           },
-        },
-        {
-          loader: 'postcss-loader',
-          options: {
-            indent: 'postcss',
-            plugins: [
-              autoprefixer({
-                browsers: 'last 2 versions',
-              }),
-            ],
-            sourceMap: true,
+        ],
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           },
-        },
-        {
-          loader: 'sass-loader',
-          options: {
-            sourceMap: true,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              importLoaders: 1,
+            },
           },
+          {
+            loader: 'postcss-loader',
+            options: {
+              indent: 'postcss',
+              plugins: [
+                autoprefixer({
+                  browsers: 'last 2 versions',
+                }),
+              ],
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader',
+        options: {
+          attrs: ['img:src'],
         },
-      ],
-    },
-    {
-      test: /\.html$/,
-      loader: 'html-loader',
-      options: {
-        attrs: ['img:src'],
       },
-    },
-    {
-      test: /\.(jpe?g|png|gif)$/,
-      loader: 'file-loader',
-      options: {
-        name: devMode ? 'assets/[name].[ext]' : 'assets/[hash].[ext]',
+      {
+        test: /\.(jpe?g|png|gif)$/,
+        loader: 'file-loader',
+        options: {
+          name: devMode ? 'assets/[name].[ext]' : 'assets/[hash].[ext]',
+        },
       },
-    },
-    {
-      test: /\.svg$/,
-      loader: 'file-loader',
-      options: {
-        name: devMode ? 'assets/[name].[ext]' : 'assets/[hash].[ext]',
+      {
+        test: /\.svg$/,
+        loader: 'file-loader',
+        options: {
+          name: devMode ? 'assets/[name].[ext]' : 'assets/[hash].[ext]',
+        },
       },
-    },
-    {
-      test: /\.md$/,
-      use: [{
-        loader: 'markdown-with-front-matter-loader',
-      }],
-    },
+      {
+        test: /\.md$/,
+        use: [
+          {
+            loader: 'markdown-with-front-matter-loader',
+          },
+        ],
+      },
     ],
   },
   plugins: [

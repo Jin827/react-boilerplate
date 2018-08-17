@@ -5,7 +5,7 @@ const cssnano = require('cssnano');
 // Compress Files
 const BrotliPlugin = require('brotli-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 const baseConfig = require('./webpack.base');
 
 const config = {
@@ -23,14 +23,14 @@ const config = {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendor',
           chunks: 'all',
-          minChunks: 2
+          minChunks: 2,
         },
         styles: {
           name: 'styles',
           test: /\.css$/,
           chunks: 'all',
-          enforce: true
-        }
+          enforce: true,
+        },
       },
     },
     minimizer: [
@@ -57,10 +57,10 @@ const config = {
         assetNameRegExp: /\.optimize\.css$/g,
         cssProcessor: cssnano,
         cssProcessorOptions: {
-          discardComments: { removeAll: true }
+          discardComments: {removeAll: true},
         },
-        canPrint: true
-      })
+        canPrint: true,
+      }),
     ],
   },
   plugins: [

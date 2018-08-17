@@ -9,10 +9,7 @@ import config from '../webpack.dev';
 const server = express();
 
 const compiler = webpack(config);
-const webpackDevMiddleware = devMiddleware(
-  compiler,
-  config.devServer,
-);
+const webpackDevMiddleware = devMiddleware(compiler, config.devServer);
 const webapckHotMiddleware = hotMiddleware(compiler);
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -25,9 +22,11 @@ if (!isProd) {
 // const staticMiddleware = express.static('dist');
 // server.use(staticMiddleware);
 
-server.use(expressStaticGzip('dist', {
-  enableBrotli: true,
-}));
+server.use(
+  expressStaticGzip('dist', {
+    enableBrotli: true,
+  }),
+);
 
 const PORT = process.env.PORT || 9007;
 server.listen(PORT, () => {

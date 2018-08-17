@@ -3,11 +3,11 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    es6: true
+    es6: true,
   },
   extends: [
     'airbnb',
-    "plugin:flowtype/recommended",
+    'plugin:flowtype/recommended',
     'prettier',
     'prettier/flowtype',
     'prettier/react',
@@ -20,7 +20,7 @@ module.exports = {
     },
     sourceType: 'module',
   },
-  plugins: ["flowtype", 'prettier', 'react', 'jsx-a11y', 'import'],
+  plugins: ['flowtype', 'prettier', 'react', 'jsx-a11y', 'import'],
   rules: {
     'jsx-a11y/href-no-hash': 'off',
     'jsx-a11y/label-has-for': 'off',
@@ -42,13 +42,17 @@ module.exports = {
     ],
     'class-methods-use-this': 'off',
     'no-underscore-dangle': 'off',
-    'react/jsx-filename-extension': [1, {
-      extensions: ['.js', '.jsx']
-    }],
-    "react/destructuring-assignment": 'off',
+    'react/jsx-filename-extension': [
+      1,
+      {
+        extensions: ['.js', '.jsx'],
+      },
+    ],
+    'react/destructuring-assignment': 'off',
     'import/extensions': ['off', 'never'],
-    'quotes': ['error', 'single'],
+    quotes: ['error', 'single'],
     'no-console': 1,
-    'semi': 'error',
-  }
-}
+    semi: 'error',
+    'prettier/prettier': ['error', 'fb'],
+  },
+};

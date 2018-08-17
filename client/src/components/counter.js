@@ -6,28 +6,28 @@ import Svg from '../../assets/svg/nodejs.svg';
 const getBundle = () => {
   import(/* webpackChunkName: 'lodash' */ 'lodash').then(() =>
     // eslint-disable-next-line no-console
-     console.log('imported')
+    console.log('imported'),
   );
 };
 export default class extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 1
+      count: 1,
     };
   }
 
   climb() {
-    const { count } = this.state;
+    const {count} = this.state;
     this.setState({
-      count: count + 1
+      count: count + 1,
     });
   }
 
   render() {
     /* JS COMMENT */
-    const { count } = this.state;
-    const { heading } = this.props;
+    const {count} = this.state;
+    const {heading} = this.props;
     return (
       <div className="test">
         <img className="image" src={Image} alt="img" />
@@ -36,7 +36,8 @@ export default class extends React.Component {
           <h2>
             {MarkdownData.title} {count}
           </h2>
-          <div dangerouslySetInnerHTML={{ __html: MarkdownData.__content }} />
+          {/* eslint-disable-next-line react/no-danger */}
+          <div dangerouslySetInnerHTML={{__html: MarkdownData.__content}} />
         </div>
         <img className="svg-image" src={Svg} alt="img" />
       </div>
