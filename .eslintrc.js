@@ -51,7 +51,7 @@ module.exports = {
     'react/destructuring-assignment': 'off',
     'import/extensions': ['off', 'never'],
     quotes: ['error', 'single'],
-    'no-console': 1,
+    'no-console': 'warn',
     semi: 'error',
     'prettier/prettier': ['error', 'fb'],
     'no-unused-vars': 'warn', // ["error", "always"],

@@ -16,17 +16,17 @@ const isProd = process.env.NODE_ENV === 'production';
 if (!isProd) {
   server.use(webpackDevMiddleware);
   server.use(webapckHotMiddleware);
+} else {
+  // Serve Static Assets
+  // const staticMiddleware = express.static('dist');
+  // server.use(staticMiddleware);
+
+  server.use(
+    expressStaticGzip('dist', {
+      enableBrotli: true,
+    }),
+  );
 }
-
-// Serve Static Assets
-// const staticMiddleware = express.static('dist');
-// server.use(staticMiddleware);
-
-server.use(
-  expressStaticGzip('dist', {
-    enableBrotli: true,
-  }),
-);
 
 const PORT = process.env.PORT || 9007;
 server.listen(PORT, () => {
