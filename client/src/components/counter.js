@@ -2,6 +2,7 @@ import React from 'react';
 import MarkdownData from '../../../data/post.md';
 import Image from '../../assets/image/background.jpeg';
 import Svg from '../../assets/svg/nodejs.svg';
+import data from '../../../data/data.js';
 
 const getBundle = () => {
   import(/* webpackChunkName: 'lodash' */ 'lodash').then(() =>
@@ -27,7 +28,7 @@ export default class extends React.Component {
   render() {
     /* JS COMMENT */
     const {count} = this.state;
-    const {heading} = this.props;
+    const {heading} = data;
     return (
       <div className="test">
         <img className="image" src={Image} alt="img" />

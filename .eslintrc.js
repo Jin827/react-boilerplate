@@ -54,5 +54,8 @@ module.exports = {
     'no-console': 1,
     semi: 'error',
     'prettier/prettier': ['error', 'fb'],
+    'no-unused-vars': 'warn', // ["error", "always"],
+    'no-inline-comments': 'off',
+    'init-declarations': 'off',
   },
 };
