@@ -1,16 +1,20 @@
 /* eslint no-console: 0 */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
 import App from './app';
-import Counter from './src/components/counter';
 
 require('./styles/main.scss');
 
 const root = document.createElement('div');
 document.body.appendChild(root);
 
-ReactDOM.render(<App />, root);
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  root,
+);
 
 /* ES6 & 7 Feature Test */
 const cal = async args => {
