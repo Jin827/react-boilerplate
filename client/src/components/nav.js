@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Route} from 'react-router-dom';
+import {NavLink, Route} from 'react-router-dom';
 import Home from './Home';
 import Counter from './counter';
 
@@ -7,10 +7,10 @@ const Nav = () => [
   <nav key="1">
     <ul>
       <li>
-        <Link to="/">Home</Link>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <Link to="/counter">Counter</Link>
+        <NavLink to="/counter">Counter</NavLink>
       </li>
     </ul>
   </nav>,
