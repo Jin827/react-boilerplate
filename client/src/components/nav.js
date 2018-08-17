@@ -4,7 +4,7 @@ import Home from './Home';
 import Counter from './counter';
 
 const Nav = () => [
-  <nav>
+  <nav key="1">
     <ul>
       <li>
         <Link to="/">Home</Link>
@@ -14,8 +14,8 @@ const Nav = () => [
       </li>
     </ul>
   </nav>,
-  <Route path="/" exact component={Home} />,
-  <Route path="/Counter" exact component={Counter} />,
+  <Route key="2" path="/" exact component={Home} />,
+  <Route key="3" path="/Counter" exact component={Counter} />,
 ];
 
 export default Nav;
