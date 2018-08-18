@@ -1,4 +1,6 @@
 import React from 'react';
+import Store from '../../Store';
+import {COUNT} from '../actions/test';
 
 const User = () => <h1>Welcome To User</h1>;
 
@@ -14,3 +16,14 @@ const cal = async args => {
 };
 
 cal({a: 1, b: 2});
+
+// console.log('Log the initial state: ', Store.getState());
+
+// // Every time the state changes, log it
+// // Note that subscribe() returns a function for unregistering the listener
+// Store.subscribe(() => console.log(Store.getState()));
+
+// // Dispatch some actions
+// Store.dispatch(COUNT());
+
+// // Stop listening to state updates

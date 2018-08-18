@@ -1,23 +1,21 @@
 import {createStore, applyMiddleware} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import {createLogger} from 'redux-logger';
-import { composeWithDevTools } from 'redux-devtools-extension'; // eslint-disable-line
-import mainReducer from './src/reducers';
+import {composeWithDevTools} from 'redux-devtools-extension';
 
-const middleWare = [];
-
-middleWare.push(thunkMiddleware);
-
-const loggerMiddleware = createLogger({
-  predicate: () => process.env.NODE_ENV === 'development',
-  collapsed: true,
-});
-
-middleWare.push(loggerMiddleware);
+import Reducers from './src/reducers';
 
 const Store = createStore(
-  mainReducer,
-  composeWithDevTools(applyMiddleware(...middleWare)),
+  Reducers,
+  composeWithDevTools(
+    applyMiddleware(
+      thunkMiddleware,
+      createLogger({
+        predicate: () => process.env.NODE_ENV === 'development',
+        collapsed: true,
+      }),
+    ),
+  ),
 );
 
 module.exports = Store;

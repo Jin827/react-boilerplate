@@ -1,6 +1,6 @@
 /* eslint import/prefer-default-export: 0 */
 import * as actionTypes from './actionTypes';
 
-export const TODO = () => ({
-  type: actionTypes.TODO,
+export const COUNT = () => ({
+  type: actionTypes.COUNT,
 });
