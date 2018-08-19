@@ -1,0 +1,62 @@
+input {
+  /* Remove iOS shadow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.input--medium {
+  font-size: 1.5em;
+}
+
+.input--small {
+  font-size: 1em;
+}
+
+.input--mini {
+  font-size: 0.8em;
+}
+
+/*- input-placeholder -*/
+.input::placeholder {
+    color: $x-light-grey;
+    opacity: 1;
+    word-spacing: .5px;
+    letter-spacing: .5px;
+    text-indent: 3px;
+    font-weight: 300;
+  }
+
+.input:focus::placeholder {
+    opacity: 0;
+}
+
+/*- form border -*/
+.form--border {
+  border: 1px solid $grey;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/*- border focus on Error -*/
+.input--error {
+  border-color: $main-blue;
+  box-shadow: .6px .6px .6px 1px $main-blue;
+}
+
+/*-- error message --*/
+.span--error {
+  color: $red;
+  margin-left: 12px;
+  margin-top: 15px;
+  font-weight: 200;
+  font-size: .8em;
+}
+
+*:focus {
+  outline: none;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import MarkdownData from '../../../data/post.md';
 import Image from '../../assets/image/background.jpeg';
-import Svg from '../../assets/svg/nodejs.svg';
+import Svg from '../../assets/svg/react.svg';
 import data from '../../../data/data.js';
 
 const getBundle = () => {
@@ -19,7 +19,7 @@ export default class extends React.Component {
   }
 
   climb() {
-    const {count} = this.state;
+    const { count } = this.state;
     this.setState({
       count: count + 1,
     });
@@ -27,10 +27,10 @@ export default class extends React.Component {
 
   render() {
     /* JS COMMENT */
-    const {count} = this.state;
-    const {heading} = data;
+    const { count } = this.state;
+    const { heading } = data;
     return (
-      <div className="test">
+      <div className="home-page">
         <img className="image" src={Image} alt="img" />
         <h1 onClick={getBundle}>{heading}</h1>
         <div onClick={this.climb.bind(this)}>
@@ -38,7 +38,7 @@ export default class extends React.Component {
             {MarkdownData.title} {count}
           </h2>
           {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{__html: MarkdownData.__content}} />
+          <div dangerouslySetInnerHTML={{ __html: MarkdownData.__content }} />
         </div>
         <img className="svg-image" src={Svg} alt="img" />
       </div>

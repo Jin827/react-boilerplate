@@ -1,7 +1,7 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
-import {count} from '../actions/test';
+import { count } from '../actions/test';
 /* eslint no-console: 0 */
 class User extends React.Component {
   handleButtonClick = () => {
@@ -11,7 +11,7 @@ class User extends React.Component {
   render() {
     console.log(this.props.counting);
     return (
-      <div>
+      <div className="user-page">
         <h1>Welcome to User</h1>
         <h2>Counting: {this.props.counting}</h2>
         <button type="button" onClick={this.handleButtonClick}>

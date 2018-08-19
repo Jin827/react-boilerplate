@@ -53,7 +53,16 @@ module.exports = {
     quotes: ['warn', 'single'],
     'no-console': 'warn',
     semi: 'warn',
-    'prettier/prettier': ['warn', 'fb'],
+    'prettier/prettier': [
+      'warn',
+      {
+        singleQuote: true,
+        trailingComma: 'all',
+        bracketSpacing: true,
+        jsxBracketSameLine: true,
+        parser: 'flow',
+      },
+    ],
     'no-unused-vars': 'warn', // ["error", "always"],
     'no-inline-comments': 'off',
     'init-declarations': 'off',

@@ -1,7 +1,7 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import {syncHistoryWithStore} from 'react-router-redux';
-import {createBrowserHistory} from 'history';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { syncHistoryWithStore } from 'react-router-redux';
+import { createBrowserHistory } from 'history';
 
 import Store from './Store';
 import App from './App';
