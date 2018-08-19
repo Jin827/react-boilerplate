@@ -15,9 +15,16 @@
     "heroku-postbuild": "npm run build:prod"
   },
   "lint-staged": {
-    "./**/*.{js,jsx,json,css,scss}": [
-      "prettier --write",
-      "git add"
+    "linters": {
+      "*.{js,jsx,json,css,scss}": [
+        "prettier --write",
+        "eslint --fix",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "dist",
+      "node_modules"
     ]
   },
   "repository": {
