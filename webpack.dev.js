@@ -9,7 +9,7 @@ const config = {
       // 'babel-register',
       // 'babel-runtime/regenerator',
       // Hot Reloading
-      'webpack-hot-middleware/client?reload=true',
+      'webpack-hot-middleware/client?/__webpack_hmr&timeout=20000&reload=true',
       // React Stateful Hot Reloading
       'react-hot-loader/patch',
       './client/index.js',

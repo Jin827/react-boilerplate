@@ -1,17 +1,25 @@
 import React from 'react';
-import {Route, Switch, withRouter} from 'react-router-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {syncHistoryWithStore} from 'react-router-redux';
+import {createBrowserHistory} from 'history';
+
+import Store from './Store';
 import App from './App';
 import Home from './src/components/Home';
 import User from './src/components/user';
 
+const history = syncHistoryWithStore(createBrowserHistory(), Store);
+
 const Routes = () => (
-  <div>
-    <App />
-    <Switch>
-      <Route path="/" component={Home} exact />
-      <Route path="/user" component={User} exact />
-    </Switch>
-  </div>
+  <BrowserRouter history={history}>
+    <div>
+      <App />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/user" exact component={User} />
+      </Switch>
+    </div>
+  </BrowserRouter>
 );
 
-export default withRouter(Routes);
+export default Routes;

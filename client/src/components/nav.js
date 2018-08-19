@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink, withRouter} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 const Nav = () => (
   <div>
@@ -16,4 +16,4 @@ const Nav = () => (
   </div>
 );
 
-export default withRouter(Nav);
+export default Nav;
