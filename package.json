@@ -6,8 +6,6 @@
   "scripts": {
     "dev-init": "webpack-dev-server --config=webpack.dev.js",
     "precommit": "lint-staged",
-    "build": "babel src/ -d lib/",
-    "prepublish": "npm run build",
     "dev": "npm-run-all --parallel dev:*",
     "dev:client": "NODE_ENV=development webpack --config webpack.dev.js --watch",
     "dev:server": "NODE_ENV=development nodemon --inspect --watch config --watch server server/server.js",
@@ -26,7 +24,9 @@
     },
     "ignore": [
       ".*/dist",
-      ".*/node_modules"
+      ".*/node_modules",
+      "./package.json",
+      "./package-lock.json"
     ]
   },
   "repository": {
