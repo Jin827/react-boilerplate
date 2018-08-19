@@ -6,6 +6,8 @@
   "scripts": {
     "dev-init": "webpack-dev-server --config=webpack.dev.js",
     "precommit": "lint-staged",
+    "build": "babel src/ -d lib/",
+    "prepublish": "npm run build",
     "dev": "npm-run-all --parallel dev:*",
     "dev:client": "NODE_ENV=development webpack --config webpack.dev.js --watch",
     "dev:server": "NODE_ENV=development nodemon --inspect --watch config --watch server server/server.js",
@@ -23,8 +25,8 @@
       ]
     },
     "ignore": [
-      "dist",
-      "node_modules"
+      ".*/dist",
+      ".*/node_modules"
     ]
   },
   "repository": {
@@ -101,7 +103,6 @@
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.0.1",
     "eslint-loader": "^2.1.0",
-    "eslint-plugin-flowtype": "^2.50.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-prettier": "^2.6.2",

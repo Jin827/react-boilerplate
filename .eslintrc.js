@@ -5,13 +5,7 @@ module.exports = {
     node: true,
     es6: true,
   },
-  extends: [
-    'airbnb',
-    'plugin:flowtype/recommended',
-    'prettier',
-    'prettier/flowtype',
-    'prettier/react',
-  ],
+  extends: ['airbnb', 'prettier', 'prettier/react'],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaFeatures: {
@@ -20,7 +14,7 @@ module.exports = {
     },
     sourceType: 'module',
   },
-  plugins: ['flowtype', 'prettier', 'react', 'jsx-a11y', 'import'],
+  plugins: ['prettier', 'react', 'jsx-a11y', 'import'],
   rules: {
     'jsx-a11y/href-no-hash': 'off',
     'jsx-a11y/label-has-for': 'off',
