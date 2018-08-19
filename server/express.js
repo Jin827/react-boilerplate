@@ -37,12 +37,15 @@ app.use(cookieParser());
 if (!isProd) {
   app.use(webpackDevMiddleware);
   app.use(webapckHotMiddleware);
-  app.use(express.static('client'));
+
+  app.use(express.static(path.join(__dirname, '..', 'public')));
+  app.use(express.static(path.join(__dirname, '..', 'client/src')));
+
   app.get(/^\/(?!api\/)(?!assets\/)(?!.*\.json$).*/, (req, res) => {
     res.sendFile(path.join(compiler.outputPath, 'index.html'));
   });
 } else {
-  // Serve Static Assets
+  /* Serve Static Assets */
   // const staticMiddleware = express.static('dist');
   // server.use(staticMiddleware);
 
