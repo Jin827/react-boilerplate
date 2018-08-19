@@ -1,4 +1,5 @@
 /* Layouts */
+
 .float-left {
   float: left;
 }
@@ -93,7 +94,6 @@
   font-weight: bold;
 }
 
-
 /* Height / Width */
 
 .h-100 {
@@ -132,8 +132,8 @@
   width: 100%;
 }
 
-
 /* Paddings */
+
 .ph {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
@@ -231,8 +231,6 @@
 .pb6 {
   padding-bottom: 8em;
 }
-
-
 
 /* Margins */
 
@@ -352,6 +350,7 @@
 }
 
 /* Borders */
+
 .border-z {
   border: none;
 }
@@ -363,42 +362,55 @@
 }
 
 /* Coordinates */
+
 .left-0 {
   left: 0;
 }
+
 .left-1 {
   left: 1rem;
 }
+
 .left-2 {
   left: 2rem;
 }
+
 .right-0 {
   right: 0;
 }
+
 .right-1 {
   right: 1rem;
 }
+
 .right-2 {
   right: 2rem;
 }
+
 .top-0 {
   top: 0;
 }
+
 .top-1 {
   top: 1rem;
 }
+
 .top-2 {
   top: 2rem;
 }
+
 .top-40 {
   top: 40%;
 }
+
 .bottom-0 {
   bottom: 0;
 }
+
 .bottom-1 {
   bottom: 1rem;
 }
+
 .bottom-2 {
   bottom: 2rem;
 }
