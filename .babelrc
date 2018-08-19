@@ -12,7 +12,7 @@
     "react",
     "babel-preset-react"
   ],
-  "plugins": ["syntax-dynamic-import"],
+  "plugins": ["syntax-dynamic-import", "transform-class-properties", "transform-object-rest-spread", "transform-flow-strip-types"],
   "env": {
     "development": {
       "plugins": ["transform-runtime", "react-hot-loader/babel"]

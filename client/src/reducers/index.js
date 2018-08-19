@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux';
 import {routerReducer} from 'react-router-redux';
-/* eslint import/no-self-import:0 */
-import * as reducers from '.';
+
+import Test from './test';
 
 export default combineReducers({
-  reducers,
+  test: Test,
   routing: routerReducer,
 });

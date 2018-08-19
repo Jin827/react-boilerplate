@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Router, browserHistory} from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {syncHistoryWithStore} from 'react-router-redux';
-import {createBrowserHistory} from 'history';
+import { createBrowserHistory } from 'history';
 import Store from './Store';
 import Routes from './Routes';
 
@@ -16,9 +16,9 @@ const history = syncHistoryWithStore(createBrowserHistory(), Store);
 
 ReactDOM.render(
   <Provider store={Store}>
-    <BrowserRouter history={history}>
+    <Router history={history}>
       <Routes />
-    </BrowserRouter>
+    </Router>
   </Provider>,
   root,
 );

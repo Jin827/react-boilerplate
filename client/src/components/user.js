@@ -1,10 +1,40 @@
-import React from 'react';
-import Store from '../../Store';
-import {COUNT} from '../actions/test';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
-const User = () => <h1>Welcome To User</h1>;
+import {count} from '../actions/test';
 
-export default User;
+class User extends React.Component {
+  handleButtonClick = () => {
+    console.log('Counting Function was called');
+    this.props.onCount();
+  };
+
+  render() {
+    console.log(this.props.counting);
+    return (
+      <div>
+        <h1>Welcome to User</h1>
+        <h2>Counting: {this.props.counting}</h2>
+        <button type="button" onClick={this.handleButtonClick}>
+          Click
+        </button>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  counting: state.test.counting,
+});
+
+const mapDispatchToProps = dispatch => ({
+  onCount: () => dispatch(count()),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(User);
 
 /* eslint no-console: 0 */
 /* ES6 & 7 Feature Test */
@@ -16,14 +46,3 @@ const cal = async args => {
 };
 
 cal({a: 1, b: 2});
-
-// console.log('Log the initial state: ', Store.getState());
-
-// // Every time the state changes, log it
-// // Note that subscribe() returns a function for unregistering the listener
-// Store.subscribe(() => console.log(Store.getState()));
-
-// // Dispatch some actions
-// Store.dispatch(COUNT());
-
-// // Stop listening to state updates
