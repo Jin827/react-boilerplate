@@ -1,18 +1,16 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { syncHistoryWithStore } from 'react-router-redux';
-import { createBrowserHistory } from 'history';
-
-import Store from './Store';
+import { Switch, Route } from 'react-router-dom';
+import { ConnectedRouter as Router } from 'react-router-redux';
+import createHistory from 'history/createBrowserHistory';
 import App from './App';
 import Home from './src/components/Home';
 import User from './src/components/user';
 import FourOhFour from './src/components/FourOhFour';
 
-const history = syncHistoryWithStore(createBrowserHistory(), Store);
+const history = createHistory();
 
 const Routes = () => (
-  <BrowserRouter history={history}>
+  <Router history={history}>
     <div>
       <App />
       <Switch>
@@ -21,7 +19,7 @@ const Routes = () => (
         <Route component={FourOhFour} />
       </Switch>
     </div>
-  </BrowserRouter>
+  </Router>
 );
 
 export default Routes;
