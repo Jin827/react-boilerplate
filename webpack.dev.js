@@ -16,6 +16,7 @@ const config = {
     ],
   },
   devServer: {
+    publicPath: '/public/',
     contentBase: 'dist',
     overlay: true,
     hot: true,

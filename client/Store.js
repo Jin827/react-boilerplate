@@ -18,4 +18,4 @@ const Store = createStore(
   ),
 );
 
-module.exports = Store;
+export default Store;

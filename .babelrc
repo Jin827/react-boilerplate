@@ -5,16 +5,27 @@
       {
         "targets": {
           "browsers": ["last 2 versions", "safari >= 7"]
-        }
+        },
+        "loose": true,
+        "modules": false
       }
     ],
     "babel-preset-react"
   ],
   "retainLines": true,
-  "plugins": ["syntax-dynamic-import", "transform-class-properties", "transform-object-rest-spread"],
+  "plugins": [
+    "syntax-dynamic-import",
+    "transform-class-properties",
+    "transform-object-rest-spread",
+    "dynamic-import-webpack"
+  ],
   "env": {
     "development": {
-      "plugins": ["transform-runtime", "react-hot-loader/babel", "transform-flow-strip-types"]
+      "plugins": [
+        "transform-runtime",
+        "react-hot-loader/babel",
+        "transform-flow-strip-types"
+      ]
     }
   }
 }
