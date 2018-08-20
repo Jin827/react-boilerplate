@@ -8,15 +8,13 @@ const config = {
     main: [
       // 'babel-register',
       // 'babel-runtime/regenerator',
-      // Hot Reloading
-      'webpack-hot-middleware/client?/__webpack_hmr&timeout=20000&reload=true',
-      // React Stateful Hot Reloading
       'react-hot-loader/patch',
+      'webpack-hot-middleware/client?path=http://localhost:9007/__webpack_hmr&timeout=20000&reload=true',
       './client/index.js',
     ],
   },
   devServer: {
-    publicPath: '/public/',
+    publicPath: '/',
     contentBase: 'dist',
     overlay: true,
     hot: true,
@@ -37,7 +35,10 @@ const config = {
     ],
   },
   devtool: 'cheap-eval-source-map',
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+  ],
 };
 
 module.exports = merge(baseConfig, config);
