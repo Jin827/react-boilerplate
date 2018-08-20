@@ -21,6 +21,8 @@ const config = {
     hot: true,
     stats: {
       colors: true,
+      reasons: true,
+      chunks: true,
     },
   },
   module: {
@@ -32,7 +34,7 @@ const config = {
       },
     ],
   },
-  devtool: 'eval',
+  devtool: 'cheap-eval-source-map',
   plugins: [new webpack.HotModuleReplacementPlugin()],
 };
 
