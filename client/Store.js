@@ -7,8 +7,7 @@ import createHistory from 'history/createBrowserHistory';
 
 import Reducers from './src/reducers';
 
-const history = createHistory();
-const routMiddleware = routerMiddleware(history);
+const routMiddleware = routerMiddleware(createHistory());
 
 const Store = createStore(
   Reducers,

@@ -1,1 +1,1 @@
-# yuch
+# React Boilerplate
