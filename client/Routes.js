@@ -7,6 +7,7 @@ import Store from './Store';
 import App from './App';
 import Home from './src/components/Home';
 import User from './src/components/user';
+import FourOhFour from './src/components/FourOhFour';
 
 const history = syncHistoryWithStore(createBrowserHistory(), Store);
 
@@ -17,6 +18,7 @@ const Routes = () => (
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/user" exact component={User} />
+        <Route component={FourOhFour} />
       </Switch>
     </div>
   </BrowserRouter>

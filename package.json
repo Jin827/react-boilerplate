@@ -21,9 +21,9 @@
   },
   "lint-staged": {
     "linters": {
-      "*.{js,jsx,json,css,scss}": [
-        "prettier --list-different",
-        "eslint --quiet",
+      "**/*.{js,jsx,json,css,scss}": [
+        "prettier --write",
+        "eslint --fix",
         "git add"
       ]
     },
