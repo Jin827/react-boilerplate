@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import { count } from '../actions/test';
 /* eslint no-console: 0 */
-// @flow
 class User extends React.Component {
   handleButtonClick = () => {
     this.props.onCount();

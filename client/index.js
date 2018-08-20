@@ -16,3 +16,9 @@ ReactDOM.render(
   </Provider>,
   root,
 );
+
+// @flow
+const name: string = 'Lee';
+const age: number = 40;
+const somethig: any = [1, 2, 3];
+const users: string[] = ['John', 2];

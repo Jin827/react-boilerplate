@@ -11,8 +11,8 @@ module.exports = {
   output: {
     filename: devMode ? '[name]-bundle.js' : '[name]-bundle.[hash].js',
     chunkFilename: devMode ? '[name].js' : '[name].[hash].js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
+    path: path.resolve(__dirname, 'public/dist'),
+    publicPath: '/public/',
   },
   module: {
     rules: [

@@ -1,7 +1,7 @@
 # Compiled Files
-dist/**
-dist/bundle.js
-dist/bundle.js.map
+public/dist/**
+public/dist/bundle.js
+public/dist/bundle.js.map
 
 # Logs
 logs
