@@ -2,16 +2,33 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import App from './App';
-import Home from './src/components/Home';
-import User from './src/components/user';
+import AsyncRoute from './AsyncRoute';
 import NoMatch from './src/components/NoMatch';
 
 const routes = () => (
   <div>
     <App />
     <Switch>
-      <Route path="/" exact component={Home} />
-      <Route path="/user" exact component={User} />
+      <Route
+        exact
+        path="/"
+        component={props => (
+          <AsyncRoute
+            props={props}
+            loadingPromise={import('./src/components/Home')}
+          />
+        )}
+      />
+      <Route
+        exact
+        path="/user"
+        component={props => (
+          <AsyncRoute
+            props={props}
+            loadingPromise={import('./src/components/user')}
+          />
+        )}
+      />
       <Route component={NoMatch} />
     </Switch>
   </div>

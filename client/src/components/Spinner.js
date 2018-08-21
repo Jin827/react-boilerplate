@@ -1,7 +1,6 @@
 import React from 'react';
+import Svg from '../../assets/svg/react.svg';
 
-const Spinner = () => (
-  <img src="/assets/svg/react.svg" alt="loading indicator" />
-);
+const Spinner = () => <img src={Svg} alt="loading indicator" />;
 
 export default Spinner;
