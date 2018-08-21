@@ -69,9 +69,9 @@ const config = {
       dry: false,
     }),
     new BrotliPlugin(),
-    new BundleAnalyzerPlugin({
-      generateStatsFile: true,
-    }),
+    // new BundleAnalyzerPlugin({
+    //   generateStatsFile: true,
+    // }),
   ],
 };
 

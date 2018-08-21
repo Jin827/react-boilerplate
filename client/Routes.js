@@ -6,7 +6,7 @@ import Home from './src/components/Home';
 import User from './src/components/user';
 import NoMatch from './src/components/NoMatch';
 
-const Routes = () => (
+const routes = () => (
   <div>
     <App />
     <Switch>
@@ -17,4 +17,5 @@ const Routes = () => (
   </div>
 );
 
-export default hot(module)(Routes);
+const Routes = module.hot ? hot(module)(routes) : routes;
+export default Routes;

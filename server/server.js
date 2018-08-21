@@ -14,18 +14,6 @@ require('dotenv').config();
 
 const app = express();
 
-const compiler = webpack(config);
-const webpackDevMiddleware = devMiddleware(compiler, {
-  hot: true,
-  noInfo: true,
-  publicPath: config.output.publicPath,
-});
-const webapckHotMiddleware = hotMiddleware(compiler, {
-  log: console.log, // eslint-disable-line
-  path: '/__webpack_hmr',
-  heartbeat: 10 * 1000,
-});
-
 const isProd = process.env.NODE_ENV === 'production';
 
 app.use(logger('dev'));
@@ -37,29 +25,39 @@ app.use(
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+const DIST_DIR = path.join(__dirname, '../', 'public/dist');
+const HTML_FILE = path.join(DIST_DIR, 'index.html');
+
 if (!isProd) {
-  app.use(webpackDevMiddleware);
-  app.use(webapckHotMiddleware);
-
-  app.use(express.static(path.join(__dirname, '..', 'public')));
-  app.use(express.static(path.join(__dirname, '..', 'client/src')));
-
-  app.get(/^\/(?!api\/)(?!assets\/)(?!.*\.json$).*/, (req, res) => {
-    res.sendFile(path.join(compiler.outputPath, 'index.html'));
-  });
-} else {
-  /* Serve Static Assets */
-  // const staticMiddleware = express.static('dist');
-  // server.use(staticMiddleware);
-
+  const compiler = webpack(config);
   app.use(
-    expressStaticGzip('dist', {
-      enableBrotli: true,
+    devMiddleware(compiler, {
+      hot: true,
+      noInfo: true,
+      publicPath: config.output.publicPath,
     }),
   );
-  app.get('/', (req, res) => {
-    res.redirect('###My Website URL');
+  app.use(
+    hotMiddleware(compiler, {
+      log: console.log, // eslint-disable-line
+      path: '/__webpack_hmr',
+      heartbeat: 10 * 1000,
+    }),
+  );
+
+  app.get(/^\/(?!api\/)(?!assets\/)(?!.*\.json$).*/, (req, res, next) => {
+    compiler.outputFileSystem.readFile(HTML_FILE, (err, result) => {
+      if (err) {
+        return next(err);
+      }
+      res.set('content-type', 'text/html');
+      res.send(result);
+      return res.end();
+    });
   });
+} else {
+  app.use(express.static(DIST_DIR));
+  app.get('*', (req, res) => res.sendFile(HTML_FILE));
 }
 
 // error handlers
