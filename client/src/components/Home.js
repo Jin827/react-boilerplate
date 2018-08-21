@@ -1,6 +1,6 @@
 import React from 'react';
 import MarkdownData from '../../../data/post.md';
-import Image from '../../assets/image/background.jpeg';
+import Image from '../../assets/img/background.jpeg';
 import Svg from '../../assets/svg/react.svg';
 import data from '../../../data/data.js';
 
