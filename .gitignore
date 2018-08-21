@@ -3,6 +3,9 @@ public/dist/**
 public/dist/bundle.js
 public/dist/bundle.js.map
 
+# Flow-typed
+flow-typed/npm/**
+
 # Logs
 logs
 *.log
