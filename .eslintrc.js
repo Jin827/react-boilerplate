@@ -64,6 +64,7 @@ module.exports = {
     ],
     "no-unused-vars": "warn", // ["error", "always"],
     "no-inline-comments": "off",
-    "init-declarations": "off"
+    "init-declarations": "off",
+    "prefer-destructuring": "off"
   }
 };

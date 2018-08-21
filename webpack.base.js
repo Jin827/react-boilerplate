@@ -4,8 +4,10 @@ const path = require('path');
 const autoprefixer = require('autoprefixer');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-const devMode = process.env.NODE_ENV !== 'production';
+const NODE_ENV = process.env.NODE_ENV;
+const devMode = NODE_ENV !== 'production';
 
 module.exports = {
   output: {
@@ -94,7 +96,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        NODE_ENV: JSON.stringify(NODE_ENV),
       },
     }),
     new HTMLWebpackPlugin({
@@ -104,5 +106,8 @@ module.exports = {
       filename: devMode ? '[name].css' : '[name].[chunkhash].css',
       chunkFilename: devMode ? '[id].css' : '[id].[chunkhash].css',
     }),
+    // new BundleAnalyzerPlugin({
+    //   generateStatsFile: true,
+    // }),
   ],
 };

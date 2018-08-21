@@ -5,7 +5,7 @@ const cssnano = require('cssnano');
 // Compress Files
 const BrotliPlugin = require('brotli-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
 const baseConfig = require('./webpack.base');
 
 const config = {
@@ -69,9 +69,6 @@ const config = {
       dry: false,
     }),
     new BrotliPlugin(),
-    // new BundleAnalyzerPlugin({
-    //   generateStatsFile: true,
-    // }),
   ],
 };
 

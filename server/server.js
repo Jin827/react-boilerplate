@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const expressStaticGzip = require('express-static-gzip');
 const devMiddleware = require('webpack-dev-middleware');
 const hotMiddleware = require('webpack-hot-middleware');
 const path = require('path');
