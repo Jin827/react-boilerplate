@@ -15,16 +15,15 @@
   "retainLines": true,
   "plugins": [
     "syntax-dynamic-import",
+    "dynamic-import-webpack",
     "transform-class-properties",
-    "transform-object-rest-spread",
-    "dynamic-import-webpack"
+    "transform-object-rest-spread"
   ],
   "env": {
     "development": {
       "plugins": [
         "transform-runtime",
-        "react-hot-loader/babel",
-        "transform-flow-strip-types"
+        "react-hot-loader/babel"
       ]
     }
   }
