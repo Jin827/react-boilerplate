@@ -9,6 +9,8 @@ class User extends React.Component {
   };
 
   render() {
+    // let exam: string = 'LEE';
+    // exam = 2;
     return (
       <div className="user-page">
         <h1>Welcome to User</h1>
