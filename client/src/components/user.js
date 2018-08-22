@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import { count } from '../actions/test';
 /* eslint no-console: 0 */
 class User extends React.Component {
-  handleButtonClick = () => {
-    this.props.onCount();
+  handleButtonClick = async () => {
+    await this.props.onCount();
+    return 7;
   };
 
   render() {

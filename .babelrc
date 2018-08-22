@@ -7,17 +7,17 @@
           "browsers": ["last 2 versions", "safari >= 7"]
         },
         "loose": true,
-        "modules": false
+        "modules": false,
+        "debug": true
       }
     ],
-    "babel-preset-react"
+    "stage-3"
   ],
   "retainLines": true,
   "plugins": [
     "syntax-dynamic-import",
     "dynamic-import-webpack",
-    "transform-class-properties",
-    "transform-object-rest-spread"
+    "transform-class-properties"
   ],
   "env": {
     "development": {
