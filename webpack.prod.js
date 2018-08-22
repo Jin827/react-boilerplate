@@ -1,5 +1,4 @@
 const merge = require('webpack-merge');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const cssnano = require('cssnano');
 // Compress Files
@@ -34,25 +33,6 @@ const config = {
       },
     },
     minimizer: [
-      new UglifyJSPlugin({
-        test: /\.js($|\?)/i,
-        sourceMap: true,
-        cache: true,
-        parallel: true,
-        uglifyOptions: {
-          mangle: true,
-          ecma: 8,
-          warnings: false,
-          ie8: true,
-          safari10: true,
-          output: {
-            comments: false,
-          },
-          compress: {
-            dead_code: true,
-          },
-        },
-      }),
       new OptimizeCssAssetsPlugin({
         assetNameRegExp: /\.optimize\.css$/g,
         cssProcessor: cssnano,

@@ -30,6 +30,7 @@ const HTML_FILE = path.join(DIST_DIR, 'index.html');
 
 if (!isProd) {
   const compiler = webpack(config);
+
   app.use(
     devMiddleware(compiler, {
       hot: true,
@@ -87,7 +88,7 @@ if (app.get('env') === 'production') {
   });
 }
 
-const PORT = process.env.PORT || 9007;
+const PORT = process.env.PORT || 9080;
 app.listen(PORT, () => {
   console.log(`Sever is listening on ${PORT} in ${process.env.NODE_ENV}`);
 });

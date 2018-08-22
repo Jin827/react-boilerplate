@@ -1,5 +1,7 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const baseConfig = require('./webpack.base');
 
 const config = {
@@ -11,7 +13,7 @@ const config = {
       // activate HMR for React
       'react-hot-loader/patch',
       // bundle the client for webpack-hot-middleware and connect to the provided endpoint
-      'webpack-hot-middleware/client?path=http://localhost:9007/__webpack_hmr&timeout=20000&reload=true',
+      'webpack-hot-middleware/client?__webpack_hmr&timeout=20000&reload=true',
       './client/index.js',
     ],
   },
@@ -39,7 +41,8 @@ const config = {
   devtool: 'cheap-eval-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
+    new OpenBrowserPlugin({ url: 'http://localhost:9080' }),
+    new FriendlyErrorsWebpackPlugin(),
   ],
 };
 

@@ -93,6 +93,26 @@ module.exports = {
       },
     ],
   },
+  optimization: {
+    namedModules: true,
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+          minChunks: 2,
+        },
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true,
+        },
+      },
+    },
+  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
