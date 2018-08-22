@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const baseConfig = require('./webpack.base');
 
@@ -41,7 +40,6 @@ const config = {
   devtool: 'cheap-eval-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new OpenBrowserPlugin({ url: 'http://localhost:9080' }),
     new FriendlyErrorsWebpackPlugin(),
   ],
 };
