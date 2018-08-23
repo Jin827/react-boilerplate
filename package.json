@@ -32,7 +32,8 @@
       ".*/node_modules",
       "./package.json",
       "./package-lock.json",
-      "!./.babelrc.js"
+      "!./.babelrc.js",
+      "!./.eslintrc.js"
     ]
   },
   "repository": {
