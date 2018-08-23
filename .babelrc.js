@@ -1,3 +1,5 @@
+const isTest = String(process.env.NODE_ENV) === 'test'
+
 module.exports = {
   presets: [
     "react",
@@ -8,7 +10,7 @@ module.exports = {
           browsers: ["last 2 versions", "safari >= 7"]
         },
         loose: true,
-        modules: false,
+        modules: isTest ? 'commonjs' : false,
         debug: true
       }
     ]
@@ -19,8 +21,8 @@ module.exports = {
     // "dynamic-import-webpack",
     "transform-class-properties",
     "transform-object-rest-spread",
-    "dynamic-import-node"
-  ],
+    isTest ? 'dynamic-import-node' : null
+  ].filter(Boolean),
   env: {
     development: {
       plugins: ["transform-runtime", "react-hot-loader/babel"]

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { count } from '../actions/test';
+import { count } from '../actions/example';
 /* eslint no-console: 0 */
 class User extends React.Component {
   handleButtonClick = async () => {
