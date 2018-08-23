@@ -6,7 +6,7 @@ import { count } from '../actions/example';
 class User extends React.Component {
   handleButtonClick = async () => {
     await this.props.onCount();
-    return 7;
+    return 10;
   };
 
   render() {
