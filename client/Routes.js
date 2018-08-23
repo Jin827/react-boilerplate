@@ -8,7 +8,7 @@ const Loading = ({ error }) => {
   if (error) {
     return 'Routing Error!';
   }
-  import('./src/components/Spinner');
+  // import('./src/components/Spinner');
   return 'Loading...';
 };
 
