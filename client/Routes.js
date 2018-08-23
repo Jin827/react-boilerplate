@@ -3,9 +3,14 @@ import { Switch, Route } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import Loadable from 'react-loadable';
 import App from './App';
-import Spinner from './src/components/Spinner';
 
-const Loading = () => <Spinner />;
+const Loading = ({ error }) => {
+  if (error) {
+    return 'Routing Error!';
+  }
+  import('./src/components/Spinner');
+  return 'Loading...';
+};
 
 const Home = Loadable({
   loader: () => import('./src/components/Home'),

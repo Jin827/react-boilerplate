@@ -20,7 +20,9 @@
   "lint-staged": {
     "linters": {
       "**/*.{js,jsx,json,css,scss}": [
-        "prettier --write",
+        "prettier --write"
+      ],
+      "**/*.{js,jsx,json}": [
         "eslint --fix",
         "git add"
       ]
@@ -29,7 +31,8 @@
       ".*/dist",
       ".*/node_modules",
       "./package.json",
-      "./package-lock.json"
+      "./package-lock.json",
+      "!./.babelrc.js"
     ]
   },
   "repository": {
@@ -100,6 +103,7 @@
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
     "babel-loader": "^7.1.5",
+    "babel-plugin-dynamic-import-node": "^2.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
@@ -126,5 +130,8 @@
     "prettier": "^1.14.2",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
+  },
+  "babel": {
+    "presets": "./.babelrc.js"
   }
 }

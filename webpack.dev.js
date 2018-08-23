@@ -8,7 +8,7 @@ const config = {
   entry: {
     main: [
       // 'babel-register',
-      // 'babel-runtime/regenerator',
+      'babel-runtime/regenerator',
       // activate HMR for React
       'react-hot-loader/patch',
       // bundle the client for webpack-hot-middleware and connect to the provided endpoint

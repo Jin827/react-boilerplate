@@ -23,13 +23,12 @@ button {
   font-size: 0.8em;
 }
 
-
 .btn--border {
-  border: 1px solid $grey;
+  border: 1px solid #333;
 }
 
 .btn--border:hover {
-  border: 1px solid $main-blue;
+  border: 1px solid #333;
   transition: border 0.2s;
 }
 
@@ -49,8 +48,8 @@ button {
 }
 
 .btn--active {
-  background-color: $main-blue;
-  border-color: $main-blue;
+  background-color: #333;
+  border-color: #333;
   transition: border-color 0.2s;
   transition: background-color 0.2s;
 }

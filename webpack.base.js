@@ -6,6 +6,8 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
+const babelConfig = require('./.babelrc.js');
+
 const NODE_ENV = process.env.NODE_ENV;
 const devMode = NODE_ENV !== 'production';
 
@@ -25,6 +27,7 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
+            options: babelConfig,
           },
         ],
       },
@@ -58,6 +61,7 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
+              includePaths: ['client/styles/main.scss'],
             },
           },
         ],
