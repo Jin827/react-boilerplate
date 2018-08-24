@@ -3,8 +3,9 @@ public/dist/**
 public/dist/bundle.js
 public/dist/bundle.js.map
 
-# Flow-typed
+# Testing Files
 flow-typed/npm/**
+coverage/
 
 # Logs
 logs

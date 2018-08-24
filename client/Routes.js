@@ -8,7 +8,7 @@ const Loading = ({ error }) => {
   if (error) {
     return 'Routing Error!';
   }
-  // import('./src/components/Spinner');
+  import('./src/components/Spinner');
   return 'Loading...';
 };
 
@@ -38,5 +38,5 @@ const routes = () => (
   </div>
 );
 
-const Routes = module.hot ? hot(module)(routes) : routes;
+const Routes = (!module.hot || (process.env.NODE_ENV === 'production')) ? routes : hot(module)(routes);
 export default Routes;

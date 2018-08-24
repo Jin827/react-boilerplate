@@ -13,7 +13,7 @@ const config = {
       // activate HMR for React
       'react-hot-loader/patch',
       // bundle the client for webpack-hot-middleware and connect to the provided endpoint
-      'webpack-hot-middleware/client?__webpack_hmr&timeout=20000&reload=true',
+      'webpack-hot-middleware/client?reload=true',
       './client/index.js',
     ],
   },

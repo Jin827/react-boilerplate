@@ -50,19 +50,9 @@ module.exports = {
     ],
     "react/destructuring-assignment": "off",
     "import/extensions": ["off", "never"],
-    quotes: ["warn", "single"],
+    quotes: "off",
     "no-console": "warn",
-    semi: "warn",
-    "prettier/prettier": [
-      "warn",
-      {
-        singleQuote: true,
-        trailingComma: "all",
-        bracketSpacing: true,
-        jsxBracketSameLine: true,
-        parser: "flow"
-      }
-    ],
+    semi: "off",
     "no-unused-vars": "warn", // ["error", "always"],
     "no-inline-comments": "off",
     "init-declarations": "off",

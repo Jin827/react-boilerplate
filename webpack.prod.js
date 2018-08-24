@@ -11,27 +11,14 @@ const config = {
   mode: 'production',
   entry: {
     vendor: ['react', 'lodash'],
-    main: ['./client/index.js'],
+    main: [
+      // 'babel-register',
+      // 'babel-runtime/regenerator',
+      './client/index.js',
+    ],
   },
   devtool: 'source-map',
   optimization: {
-    splitChunks: {
-      cacheGroups: {
-        default: false,
-        commons: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
-          chunks: 'all',
-          minChunks: 2,
-        },
-        styles: {
-          name: 'styles',
-          test: /\.css$/,
-          chunks: 'all',
-          enforce: true,
-        },
-      },
-    },
     minimizer: [
       new OptimizeCssAssetsPlugin({
         assetNameRegExp: /\.optimize\.css$/g,
@@ -44,7 +31,7 @@ const config = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(['dist'], {
+    new CleanWebpackPlugin(['public/dist'], {
       verbose: true,
       dry: false,
     }),

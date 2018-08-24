@@ -41,7 +41,6 @@ if (!isProd) {
   app.use(
     hotMiddleware(compiler, {
       log: console.log, // eslint-disable-line
-      path: '/__webpack_hmr',
       heartbeat: 10 * 1000,
     }),
   );
