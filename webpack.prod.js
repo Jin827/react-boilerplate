@@ -9,14 +9,7 @@ const baseConfig = require('./webpack.base');
 
 const config = {
   mode: 'production',
-  entry: {
-    vendor: ['react', 'lodash'],
-    main: [
-      // 'babel-register',
-      // 'babel-runtime/regenerator',
-      './client/index.js',
-    ],
-  },
+  entry: './client/index.js',
   devtool: 'source-map',
   optimization: {
     minimizer: [

@@ -6,8 +6,7 @@ const baseConfig = require('./webpack.base');
 
 const config = {
   mode: 'development',
-  entry: {
-    main: [
+  entry: [
       // 'babel-register',
       // 'babel-runtime/regenerator',
       // activate HMR for React
@@ -16,8 +15,7 @@ const config = {
       'webpack-hot-middleware/client?reload=true',
       './client/index.js',
     ],
-  },
-  devServer: {
+    devServer: {
     publicPath: '/',
     contentBase: 'dist',
     overlay: true,

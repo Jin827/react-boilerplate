@@ -56,6 +56,7 @@ module.exports = {
     "no-unused-vars": "warn", // ["error", "always"],
     "no-inline-comments": "off",
     "init-declarations": "off",
-    "prefer-destructuring": "off"
+    "prefer-destructuring": "off",
+    "consistent-return": "off"
   }
 };
