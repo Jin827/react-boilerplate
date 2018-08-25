@@ -3,8 +3,9 @@ import { Switch, Route } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import Loadable from 'react-loadable';
 import App from './App';
+import Home from './src/components/Home';
 
-const Spinner = () => import('./src/components/Spinner');
+const Spinner = () => import('./src/components/Spinner' /* webpackChunkName: 'Spinner' */);
 
 const Loading = (props) => {
   if (props.error) {
@@ -27,13 +28,14 @@ const Loading = (props) => {
   return 'Loading...'
 };
 
-const Home = Loadable({
-  loader: () => import('./src/components/Home' /* webpackChunkName: 'Home' */),
-  loading: Loading,
-});
+// const Home = Loadable({
+//   loader: () => import('./src/components/Home' /* webpackChunkName: 'Home' */ ),
+//   loading: Loading,
+// });
 
 const User = Loadable({
-  loader: () => import('./src/components/User' /* webpackChunkName: 'User' */),
+  loader: () => import('./src/components/User'
+    /* webpackChunkName: 'User', webpackPrefetch: true */),
   loading: Loading,
 });
 
@@ -42,6 +44,16 @@ const NoMatch = Loadable({
   loading: Loading,
 });
 
+// if(process.env.NODE_ENV === 'development') {
+  // const dynamicImport = module => Loadable({
+//   loader: () => import(`./src/components/${module}` /* webpackMode: 'lazy-once' */),
+//   lading: Loading,
+// })
+// } else {
+//   //Code Without 'lazy-once'
+// }
+
+
 const routes = () => (
   <div>
     <App />
@@ -49,6 +61,9 @@ const routes = () => (
       <Route exact path="/" component={Home} />
       <Route exact path="/user" component={User} />
       <Route component={NoMatch} />
+      {/* <Route exact path="/" component={dynamicImport('Home')} />
+      <Route exact path="/user" component={dynamicImport('user')} />
+      <Route component={dynamicImport('noMatch')} /> */}
     </Switch>
   </div>
 );

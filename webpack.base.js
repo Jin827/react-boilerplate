@@ -12,8 +12,8 @@ const devMode = NODE_ENV !== 'production';
 
 module.exports = {
   output: {
-    filename: devMode ? '[name]-bundle.js' : '[name]-bundle.[hash].js',
-    chunkFilename: devMode ? '[name].js' : '[name].[hash].js',
+    filename: devMode ? 'bundle.js' : 'bundle.[hash].js',
+    chunkFilename: devMode ? '[name].lazy-chunk.js' : '[name].lazy-chunk.[hash].js',
     path: path.resolve(__dirname, 'public/dist'),
     publicPath: '/',
   },
