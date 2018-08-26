@@ -1,4 +1,6 @@
 module.exports = {
+  testMatch: ['**/__test__/**'],
+  testPathIgnorePatterns: ['/node_modules/'],
   coverageDirectory: './coverage',
   collectCoverageFrom: [
     '**/src/**/*.js',

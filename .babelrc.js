@@ -1,4 +1,4 @@
-const isTest = String(process.env.NODE_ENV) === 'test'
+const isTest = String(process.env.NODE_ENV) === 'test';
 
 module.exports = {
   presets: [
@@ -7,31 +7,33 @@ module.exports = {
       'env',
       {
         targets: {
-          browsers: ['last 2 versions', 'safari >= 7']
+          browsers: ['last 2 versions', 'safari >= 7'],
         },
         loose: true,
         modules: isTest ? 'commonjs' : false,
-        debug: true
-      }
-    ]
+        debug: isTest ? false : true,
+      },
+    ],
   ],
   retainLines: true,
   plugins: [
     [
-      "transform-runtime", {
-        "helpers": false,
-        "polyfill": false,
-        "regenerator": true,
-        "moduleName": "babel-runtime"
-    }],
+      'transform-runtime',
+      {
+        helpers: false,
+        polyfill: false,
+        regenerator: true,
+        moduleName: 'babel-runtime',
+      },
+    ],
     'syntax-dynamic-import',
     'transform-class-properties',
     'transform-object-rest-spread',
-    isTest ? 'dynamic-import-node' : null
+    isTest ? 'dynamic-import-node' : null,
   ].filter(Boolean),
   env: {
     development: {
-      plugins: ['react-hot-loader/babel']
-    }
-  }
+      plugins: ['react-hot-loader/babel'],
+    },
+  },
 };

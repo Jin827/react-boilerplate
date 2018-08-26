@@ -58,6 +58,7 @@ module.exports = {
     'init-declarations': 'off',
     'prefer-destructuring': 'off',
     'consistent-return': 'off',
+    'no-use-before-define': 'off',
     'prettier/prettier': 'warn',
   },
-}
+};

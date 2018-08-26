@@ -1,7 +1,6 @@
 module.exports = {
   displayName: 'client',
-  testURL: 'https://til.test.com',
-  testPathIgnorePatterns: ['/node_modules/', '/helpers/'],
+  // testURL: 'https://til.test.com',
   setupTestFrameworkScriptFile: require.resolve(
     '../test.config/setup-test-framework.js',
   ),
@@ -13,4 +12,4 @@ module.exports = {
     '\\.svg$': require.resolve('../test.config/svg-file-mock.js'),
     // can also map files that are loaded by webpack with the file-loader
   },
-}
+};
