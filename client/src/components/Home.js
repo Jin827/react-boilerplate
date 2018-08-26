@@ -1,34 +1,34 @@
-import React from 'react';
-import MarkdownData from '../../../data/post.md';
-import Image from '../../assets/img/background.jpeg';
-import Svg from '../../assets/svg/react.svg';
-import data from '../../../data/data.js';
+import React from 'react'
+import MarkdownData from '../../../data/post.md'
+import Image from '../../assets/img/background.jpeg'
+import Svg from '../../assets/svg/react.svg'
+import data from '../../../data/data.js'
 
 const getBundle = () => {
   import(/* webpackChunkName: 'lodash' */ 'lodash').then(() =>
     // eslint-disable-next-line no-console
     console.log('imported'),
-  );
-};
+  )
+}
 export default class extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       count: 1,
-    };
+    }
   }
 
   climb() {
-    const { count } = this.state;
+    const { count } = this.state
     this.setState({
       count: count + 1,
-    });
+    })
   }
 
   render() {
     /* JS COMMENT */
-    const { count } = this.state;
-    const { heading } = data;
+    const { count } = this.state
+    const { heading } = data
     return (
       <div className="home-page">
         <img className="image" src={Image} alt="img" />
@@ -42,6 +42,6 @@ export default class extends React.Component {
         </div>
         <img className="svg-image" src={Svg} alt="img" />
       </div>
-    );
+    )
   }
 }

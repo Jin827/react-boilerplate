@@ -1,4 +1,5 @@
 module.exports = {
+  displayName: 'server',
   testEnvironment: 'node',
-  collectCoverageFrom: ['**/server/**/*.js'],
-};
+  modulePaths: ['<rootDir>/src', '<rootDir>/test'],
+}
