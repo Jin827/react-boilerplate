@@ -5,9 +5,10 @@ import Loadable from 'react-loadable';
 import App from './App';
 import Home from './src/components/Home';
 
-const Spinner = () => import('./src/components/Spinner' /* webpackChunkName: 'Spinner' */);
+const Spinner = () =>
+  import('./src/components/Spinner' /* webpackChunkName: 'Spinner' */);
 
-const Loading = (props) => {
+const Loading = props => {
   if (props.error) {
     return <div> Routing Error!</div>;
   }
@@ -18,14 +19,14 @@ const Loading = (props) => {
   // module.default();
 
   // ERROR: Render 4 Times...
-  Spinner()
+  Spinner();
   //   .then(module =>
   //     // (parameter) module: typeof import("/Users/jiahlee/Documents/react-boilerplate/client/src/components/Spinner")
   //     // ERROR : Loading(...): Nothing was returned from render.
   //     // module.Spinner
   //     module.default()
   // )
-  return 'Loading...'
+  return 'Loading...';
 };
 
 // const Home = Loadable({
@@ -34,25 +35,25 @@ const Loading = (props) => {
 // });
 
 const User = Loadable({
-  loader: () => import('./src/components/User'
-    /* webpackChunkName: 'User', webpackPrefetch: true */),
+  loader: () => import('./src/components/User'),
+  /* webpackChunkName: 'User', webpackPrefetch: true */
   loading: Loading,
 });
 
 const NoMatch = Loadable({
-  loader: () => import('./src/components/NoMatch' /* webpackChunkName: 'NoMatch' */),
+  loader: () =>
+    import('./src/components/NoMatch' /* webpackChunkName: 'NoMatch' */),
   loading: Loading,
 });
 
 // if(process.env.NODE_ENV === 'development') {
-  // const dynamicImport = module => Loadable({
+// const dynamicImport = module => Loadable({
 //   loader: () => import(`./src/components/${module}` /* webpackMode: 'lazy-once' */),
 //   lading: Loading,
 // })
 // } else {
 //   //Code Without 'lazy-once'
 // }
-
 
 const routes = () => (
   <div>
@@ -69,5 +70,8 @@ const routes = () => (
 );
 
 // ### Need to code Splitting hot module import
-const Routes = (!module.hot || (process.env.NODE_ENV === 'production')) ? routes : hot(module)(routes);
+const Routes =
+  !module.hot || process.env.NODE_ENV === 'production'
+    ? routes
+    : hot(module)(routes);
 export default Routes;

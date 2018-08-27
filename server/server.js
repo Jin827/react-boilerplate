@@ -1,14 +1,14 @@
 /* eslint no-console: 0 */
-const express = require('express');
-const webpack = require('webpack');
-const logger = require('morgan');
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const devMiddleware = require('webpack-dev-middleware');
-const hotMiddleware = require('webpack-hot-middleware');
-const path = require('path');
-// const expressStaticGzip = require('express-static-gzip');
-const config = require('../webpack.dev');
+import express from 'express';
+import path from 'path';
+import webpack from 'webpack';
+import logger from 'morgan';
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import devMiddleware from 'webpack-dev-middleware';
+import hotMiddleware from 'webpack-hot-middleware';
+// import expressStaticGzip from 'express-static-gzip');
+import config from '../webpack.dev';
 
 require('dotenv').config();
 

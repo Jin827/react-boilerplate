@@ -8,6 +8,7 @@ module.exports = {
       {
         targets: {
           browsers: ['last 2 versions', 'safari >= 7'],
+          node: 'current',
         },
         loose: true,
         modules: isTest ? 'commonjs' : false,

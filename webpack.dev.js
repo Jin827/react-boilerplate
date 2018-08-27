@@ -7,15 +7,15 @@ const baseConfig = require('./webpack.base');
 const config = {
   mode: 'development',
   entry: [
-      // 'babel-register',
-      // 'babel-runtime/regenerator',
-      // activate HMR for React
-      'react-hot-loader/patch',
-      // bundle the client for webpack-hot-middleware and connect to the provided endpoint
-      'webpack-hot-middleware/client?reload=true',
-      './client/index.js',
-    ],
-    devServer: {
+    'babel-register',
+    'babel-runtime/regenerator',
+    // activate HMR for React
+    'react-hot-loader/patch',
+    // bundle the client for webpack-hot-middleware and connect to the provided endpoint
+    'webpack-hot-middleware/client?reload=true',
+    './client/index.js',
+  ],
+  devServer: {
     publicPath: '/',
     contentBase: 'dist',
     overlay: true,

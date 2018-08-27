@@ -1,4 +1,4 @@
-import makeMeSandwich from '../../components/makeMeSandwich';
+import makeMeSandwich from '../makeMeSandwich';
 
 function getReq(sandwich) {
   return { query: { sandwich } };
