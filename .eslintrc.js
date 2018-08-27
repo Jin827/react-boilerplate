@@ -49,7 +49,9 @@ module.exports = {
       },
     ],
     'react/destructuring-assignment': 'off',
-    'import/extensions': ['off', 'never'],
+    'import/extensions': 'off',
+    'import/no-unresolved': 'off',
+    'import/no-extraneous-dependencies': 'off',
     quotes: 'off',
     'no-console': 'warn',
     semi: 'off',
@@ -59,6 +61,7 @@ module.exports = {
     'prefer-destructuring': 'off',
     'consistent-return': 'off',
     'no-use-before-define': 'off',
+    // 'import/no-extraneous-dependencies': ['error', {devDependencies: true}],
     'prettier/prettier': 'warn',
   },
 };
