@@ -12,10 +12,10 @@
     "dev-init": "webpack-dev-server --config=webpack.dev.js",
     "precommit": "lint-staged",
     "dev": "npm-run-all --parallel dev:*",
-    "dev:client": "NODE_ENV=development webpack --config webpack.dev.js --watch",
-    "dev:server": "NODE_ENV=development nodemon --inspect --watch config --watch server server/starter.js",
-    "build:prod": "NODE_ENV=production webpack --config=webpack.prod.js",
-    "start": "NODE_ENV=production node server/starter.js",
+    "dev:client": "cross-env NODE_ENV=development webpack --config webpack.dev.js --watch",
+    "dev:server": "cross-env NODE_ENV=development nodemon --inspect --watch config --watch server server/starter.js",
+    "build:prod": "cross-env NODE_ENV=production webpack --config=webpack.prod.js",
+    "start": "cross-env NODE_ENV=production node server/starter.js",
     "heroku-postbuild": "npm run build:prod"
   },
   "lint-staged": {
@@ -106,6 +106,7 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.2.0",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.0.1",
