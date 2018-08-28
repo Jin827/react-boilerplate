@@ -6,6 +6,8 @@ public/dist/bundle.js.map
 # Testing Files
 flow-typed/npm/**
 coverage/
+cypress/videos
+cypress/screenshots
 
 # Logs
 logs

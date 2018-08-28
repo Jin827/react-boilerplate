@@ -1,6 +1,8 @@
 module.exports = {
   displayName: 'client',
-  // testURL: 'https://til.test.com',
+  // testEnvironmentOptions: {
+  //   url: 'https://til.test.com',
+  // },
   setupTestFrameworkScriptFile: require.resolve(
     '../test/setup-test-framework.js',
   ),
