@@ -1,14 +1,17 @@
 const webpack = require('webpack');
 const path = require('path');
-
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const babelConfig = require('./.babelrc.js');
 
 const NODE_ENV = process.env.NODE_ENV;
+console.log('@@@@@@@@@@@@@@@@@@@@@@NODE_ENV: ', NODE_ENV);
 const devMode = NODE_ENV !== 'production';
+const isTest = NODE_ENV === 'test';
 
 module.exports = {
   output: {
@@ -99,6 +102,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(['public/dist']),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(NODE_ENV),
@@ -111,5 +115,10 @@ module.exports = {
       filename: devMode ? '[name].css' : '[name].[chunkhash].css',
       chunkFilename: devMode ? '[id].css' : '[id].[chunkhash].css',
     }),
-  ],
+    isTest
+      ? new BundleAnalyzerPlugin({
+          generateStatsFile: true,
+        })
+      : null,
+  ].filter(Boolean),
 };

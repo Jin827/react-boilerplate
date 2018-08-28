@@ -3,7 +3,6 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const cssnano = require('cssnano');
 // Compress Files
 const BrotliPlugin = require('brotli-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const baseConfig = require('./webpack.base');
 
@@ -23,13 +22,7 @@ const config = {
       }),
     ],
   },
-  plugins: [
-    new CleanWebpackPlugin(['public/dist'], {
-      verbose: true,
-      dry: false,
-    }),
-    new BrotliPlugin(),
-  ],
+  plugins: [new BrotliPlugin()],
 };
 
 module.exports = merge(config, baseConfig);

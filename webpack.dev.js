@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
 const baseConfig = require('./webpack.base');
 
 const config = {
@@ -40,9 +40,6 @@ const config = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new FriendlyErrorsWebpackPlugin(),
-    // new BundleAnalyzerPlugin({
-    //   generateStatsFile: true,
-    // }),
   ],
 };
 
