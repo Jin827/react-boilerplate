@@ -13,6 +13,8 @@ const App = props => (
       <meta property="og:type" content="###" />
       <meta property="og:url" content="###" />
       <meta property="og:image" content="###" />
+      <link type="text/plain" rel="author" href="http://domain/humans.txt" />
+      <link type="text/plain" rel="author" href="http://domain/robots.txt" />
     </Helmet>
     <Nav />
     {props.children}
