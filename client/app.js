@@ -15,6 +15,8 @@ const App = props => (
       <meta property="og:image" content="###" />
       <link type="text/plain" rel="author" href="http://domain/humans.txt" />
       <link type="text/plain" rel="author" href="http://domain/robots.txt" />
+      <link rel="manifest" href="../public/manifest.json" />
+      <meta name="google-site-verification" content="##" />
     </Helmet>
     <Nav />
     {props.children}

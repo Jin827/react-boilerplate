@@ -91,12 +91,12 @@ module.exports = {
         },
       },
       {
+        test: /\.(gif|eot|woff|woff2|ttf|svg)$/,
+        loader: 'url-loader',
+      },
+      {
         test: /\.md$/,
-        use: [
-          {
-            loader: 'markdown-with-front-matter-loader',
-          },
-        ],
+        loader: 'markdown-with-front-matter-loader',
       },
     ],
   },
