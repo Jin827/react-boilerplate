@@ -19,14 +19,13 @@
     "test": "jest --coverage --watch",
     "test:client": "jest --config ./client/jest.config.js --coverage --watch",
     "test:server": "jest --config ./server/jest.config.js --coverage --watch",
-    "test:e2e:dev": "npm-run-all --parallel dev:server cy:open",
+    "test:e2e:dev": "npm-run-all --parallel dev:server cy:run",
     "test:e2e": "npm-run-all --parallel --race start cy:run",
-    "cy:open": "cypress open",
     "cy:run": "cypress run"
   },
   "lint-staged": {
     "linters": {
-      "**/*.{js,jsx,css,scss}": [
+      "**/*.{js,jsx,json,css,scss}": [
         "prettier --write",
         "eslint --fix",
         "git add"

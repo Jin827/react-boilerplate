@@ -9,7 +9,6 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const babelConfig = require('./.babelrc.js');
 
 const NODE_ENV = process.env.NODE_ENV;
-console.log('@@@@@@@@@@@@@@@@@@@@@@NODE_ENV: ', NODE_ENV);
 const devMode = NODE_ENV !== 'production';
 const isTest = NODE_ENV === 'test';
 
