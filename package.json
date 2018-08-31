@@ -25,9 +25,13 @@
   },
   "lint-staged": {
     "linters": {
-      "**/*.{js,jsx,json,css,scss}": [
-        "prettier --write",
+      "**/*.{js,jsx,json}": [
         "eslint --fix",
+        "prettier --parser flow --write",
+        "git add"
+      ],
+      "**/*.{scss}": [
+        "prettier --parser flow --write",
         "git add"
       ]
     },
