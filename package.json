@@ -29,6 +29,10 @@
         "eslint --fix",
         "prettier --parser flow --write",
         "git add"
+      ],
+      "**/*.scss": [
+        "prettier --parser flow --write",
+        "git add"
       ]
     },
     "ignore": [
