@@ -30,7 +30,7 @@
         "prettier --parser flow --write",
         "git add"
       ],
-      "**/*.{scss}": [
+      "**/*.scss": [
         "prettier --parser flow --write",
         "git add"
       ]

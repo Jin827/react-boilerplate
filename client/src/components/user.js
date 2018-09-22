@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { count } from '../actions/example';
+import { count, apiRequest } from '../actions/example';
 /* eslint no-console: 0 */
 class User extends React.Component {
   handleButtonClick = async () => {
     await this.props.onCount();
-    return 10;
+    return this.props.onApiRequest();
   };
 
   render() {
@@ -30,6 +30,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onCount: () => dispatch(count()),
+  onApiRequest: () => dispatch(apiRequest()),
 });
 
 export default connect(

@@ -1,11 +1,11 @@
-import * as actionTypes from '../actions/actionTypes';
+import * as types from '../actions/actionTypes';
 
 const initialState = {
   counting: 0,
 };
 const Test = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.COUNT: {
+    case types.COUNT: {
       return {
         ...state,
         counting: state.counting + 1,

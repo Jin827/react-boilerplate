@@ -41,6 +41,7 @@ module.exports = {
     'react/jsx-boolean-value': 'off',
     'no-nested-ternary': 'off',
     'no-plusplus': 'off',
+    'import/prefer-default-export': 'off',
     'import/no-named-as-default': 'off',
     'import/no-extraneous-dependencies': [
       'error',
@@ -51,7 +52,6 @@ module.exports = {
       },
     ],
     'class-methods-use-this': 'off',
-    'no-underscore-dangle': 'off',
     'react/jsx-filename-extension': [
       1,
       {
@@ -62,16 +62,20 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
     'import/no-extraneous-dependencies': 'off',
+    'import/prefer-default-export': 'off',
     quotes: 'off',
     'no-console': 'warn',
     semi: 'off',
     'no-unused-vars': 'warn', // ['error', 'always'],
     'no-inline-comments': 'off',
+    'no-underscore-dangle': 'off',
+    'no-useless-constructor': 'warn',
     'init-declarations': 'off',
     'prefer-destructuring': 'off',
     'consistent-return': 'off',
     'no-use-before-define': 'off',
     'global-require': 'off',
+    'react/prefer-stateless-function': 'warn',
     'prettier/prettier': 'warn',
   },
 };
