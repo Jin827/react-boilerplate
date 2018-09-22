@@ -2,10 +2,10 @@ const isTest = String(process.env.NODE_ENV) === 'test';
 
 module.exports = {
   presets: [
-    'react',
     [
       'env',
       {
+        useBuiltIns: 'usage',
         targets: {
           browsers: ['last 2 versions', 'safari >= 7'],
           node: 'current',
@@ -15,6 +15,7 @@ module.exports = {
         debug: isTest ? false : true,
       },
     ],
+    'react',
   ],
   retainLines: true,
   plugins: [

@@ -1,31 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:200,200i,300,300i,400');
 
-body, div, span, h1, h2, h3, h4, h5, h6 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto', sans-serif;
+}
+
+.f-en {
+  font-family: 'Nanum Gothic', sans-serif;
 }
 
 body {
   font-size: 16px;
-  color: #3c4858;
+  color: #605E5E;
+  font-weight: 300;
+  line-height: 1.25em;
+
+  @include for-tablet-landscape-up {
+    font-size: 1.375em;
+  }
 }
 
-/* ------ FONT SIZE ------ */
-.f4 {
-  font-size: 12px;
-}
-
-.f5 {
-  font-size: 14px;
-}
-
-.f6 {
-  font-size: 18px;
-}
-
-.f-xm {
-  font-size: .7em;
-}
-
+/* ------ Size ------ */
 .f-mini {
   font-size: .9em;
 }
@@ -50,9 +52,9 @@ body {
   font-size: 2.5em;
 }
 
-/* ------ FONT WEIGHT ------ */
-.fw1 {
-  font-weight: 200;
+/* ------ Weight ------ */
+.fw2 {
+  font-weight: 300;
 }
 
 .fw3 {
@@ -71,7 +73,7 @@ body {
   font-weight: bold;
 }
 
-/* ------ TEXT ------ */
+/* ------ Text ------ */
 .ttu {
   text-transform: uppercase;
 }
@@ -84,7 +86,7 @@ body {
   text-decoration: none;
 }
 
-/* ------ TEXT-SPACE ------ */
+/* ------ Text Space ------ */
 .lh-1 {
   line-height: 1.2em;
 }
@@ -98,5 +100,5 @@ body {
 }
 
 .ls-1 {
-  letter-spacing: 1px;
+  letter-spacing: .8px;
 }
